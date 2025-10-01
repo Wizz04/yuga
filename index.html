@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,11 +8,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <link rel="icon" type="image/x-icon" href="favicon.ico"> 
-    
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-    
-    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/Wizz04/yuga/refs/heads/main/yuga_colour_logo_with_white_circle.png">
+    <link rel="icon" type="image/png" href="yuga_colour_logo_with_white_circle.png">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800;900&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
@@ -35,7 +32,6 @@
             color: var(--text-color-light);
             transition: background-color 0.5s ease, color 0.5s ease;
             overflow-x: hidden;
-            scroll-behavior: smooth;
         }
 
         /* Brand Colors */
@@ -139,153 +135,13 @@
             100% { transform: rotate(360deg); }
         }
         
-        /* Gallery Modal Styles */
-        #gallery-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background-color: rgba(0, 0, 0, 0.9);
-            z-index: 1000;
-            display: none;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            animation: fadeIn 0.3s forwards;
-        }
-        #gallery-modal.active {
-            display: flex;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        #gallery-modal-content {
-            position: relative;
-            max-width: 90%;
-            max-height: 90vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        #gallery-image {
-            max-width: 100%;
-            max-height: 80vh;
-            border-radius: 12px;
-            object-fit: contain;
-            transition: transform 0.5s ease-in-out;
-        }
-
-        .gallery-nav-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(0, 0, 0, 0.5);
-            color: white;
-            padding: 0.5rem;
-            cursor: pointer;
-            border-radius: 50%;
-            z-index: 1010;
-            transition: background 0.3s ease, transform 0.3s ease;
-        }
-        @media (min-width: 768px) {
-            .gallery-nav-btn {
-                padding: 1rem;
-            }
-        }
-        .gallery-nav-btn:hover {
-            background: rgba(0, 0, 0, 0.8);
-            transform: translateY(-50%) scale(1.1);
-        }
-        #prev-btn { left: 1rem; }
-        #next-btn { right: 1rem; }
-        @media (min-width: 768px) {
-            #prev-btn { left: 2rem; }
-            #next-btn { right: 2rem; }
-        }
-
-        #close-gallery-btn {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            color: white;
-            font-size: 2rem;
-            cursor: pointer;
-            z-index: 1010;
-        }
-
-        #image-caption {
-            color: white;
-            margin-top: 1rem;
-            font-size: 1rem;
-            font-weight: 500;
-            text-align: center;
-        }
-        @media (min-width: 768px) {
-            #image-caption {
-                font-size: 1.25rem;
-            }
-        }
-        
-        .gallery-item {
-            overflow: hidden;
-            border-radius: 0.75rem;
-            position: relative;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
-        }
-        
-        .gallery-item:hover {
-            transform: scale(1.03) rotate(-1deg);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.25);
-        }
-        
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.1);
-        }
-
-        .gallery-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.1));
-            display: flex;
-            align-items: flex-end;
-            padding: 1rem;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .gallery-item:hover .gallery-overlay {
-            opacity: 1;
-        }
-        
-        .gallery-caption {
-            color: white;
-            font-weight: 600;
-            font-size: 1.25rem;
-        }
-        
         /* Branch Selector */
         .branch-btn.active {
             background-color: var(--primary-color-light);
             color: white;
         }
         
-        /* New Hover Effect for Cards */
+        /* General Hover Effect for Cards (e.g., Contact) */
         .card-hover-effect {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             position: relative;
@@ -314,7 +170,7 @@
             transform: translateY(0);
         }
 
-        /* Custom AOS Animation for Course Cards */
+        /* Custom AOS Animation for Cards */
         [data-aos="card-entrance"] {
             opacity: 0;
             transform: translateY(30px) scale(0.95);
@@ -356,7 +212,6 @@
             border-top-left-radius: 2rem;
             border-top-right-radius: 2rem;
             box-shadow: 0 -8px 24px rgba(0,0,0,0.2);
-            height: 100vh;
         }
         .sticky-card p {
             color: #e2e8f0; /* Using a light gray for better readability than pure white */
@@ -371,6 +226,239 @@
         #about-content-wrapper.visible {
             opacity: 1;
             transform: translateY(0);
+        }
+
+        /* --- New Styles for Course Cards --- */
+        .course-card {
+            position: relative;
+            height: 280px;
+            border-radius: 1rem;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            display: flex;
+            align-items: flex-end; /* Puts content at bottom */
+            padding: 1.5rem;
+            color: white;
+        }
+
+        @media (max-width: 767px) {
+            .course-card {
+                height: 240px;
+            }
+        }
+
+        .course-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+        }
+
+        .course-card::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.85) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 1;
+        }
+        .course-card:hover::after {
+            opacity: 1;
+        }
+
+        .course-card-content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            transform: translateY(0);
+            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .course-card:hover .course-card-content {
+            transform: translateY(-20px);
+        }
+        .course-card-content h3 {
+            text-shadow: 0 2px 4px rgba(0,0,0,0.7);
+            margin-bottom: 0;
+        }
+        .course-card-description {
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: opacity 0.4s ease 0.1s, max-height 0.4s ease 0.1s, margin-top 0.4s ease 0.1s;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            color: #e2e8f0;
+            margin-top: 0rem;
+        }
+        .course-card:hover .course-card-description {
+            opacity: 1;
+            max-height: 100px;
+            margin-top: 0.5rem;
+        }
+
+
+        /* --- Styles for Performance Collage --- */
+        #performance {
+            position: relative;
+            background-image: url('concert_bg.jpg');
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed; /* Parallax effect */
+        }
+        #performance::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        #performance .container, #performance #collage-container {
+            position: relative;
+            z-index: 2;
+        }
+        #performance h2, #performance p {
+            color: white;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        #collage-container {
+            width: 100%;
+            overflow-x: hidden;
+            cursor: grab;
+            user-select: none;
+        }
+        #collage-container.dragging {
+            cursor: grabbing;
+        }
+        #collage-wrapper {
+            display: flex;
+            width: max-content;
+            will-change: transform;
+        }
+
+        .collage-image {
+            height: 300px;
+            width: auto;
+            object-fit: cover;
+            border-radius: 1rem;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.6s ease, transform 0.6s ease;
+            margin: 0 1rem;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        .collage-image:hover {
+            transform: scale(1.05) rotate(1deg) !important; /* Use important to override JS transform */
+            z-index: 10;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.35);
+        }
+
+        #performance.is-visible .collage-image {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- Styles for Admission Form --- */
+        .form-input, .form-textarea, .form-select, .multiselect-box {
+            background-color: rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            color: var(--glass-text-light);
+            transition: all 0.3s ease;
+            border-radius: 0.5rem;
+            padding: 0.75rem 1rem;
+            width: 100%;
+        }
+        .form-input::placeholder, .form-textarea::placeholder {
+            color: rgba(51, 51, 51, 0.6);
+        }
+        .form-input:focus, .form-textarea:focus, .form-select:focus, .multiselect-box:focus-within {
+            outline: none;
+            border-color: var(--primary-color-light);
+            box-shadow: 0 0 0 3px rgba(179, 19, 152, 0.3);
+            background-color: rgba(0, 0, 0, 0.15);
+        }
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--glass-text-light);
+        }
+
+        /* Custom Multiselect */
+        .multiselect-container {
+            position: relative;
+        }
+        .multiselect-box {
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .multiselect-box svg {
+            transition: transform 0.3s ease;
+        }
+        .multiselect-container.open .multiselect-box svg {
+            transform: rotate(180deg);
+        }
+        .multiselect-checkboxes {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background-color: var(--glass-bg-light);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 0.5rem;
+            padding: 0.5rem;
+            margin-top: 0.25rem;
+            z-index: 10;
+            max-height: 200px;
+            overflow-y: auto;
+            opacity: 0;
+            transform: translateY(-10px) scale(0.98);
+            transform-origin: top;
+            pointer-events: none;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+        }
+        .multiselect-container.open .multiselect-checkboxes {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            pointer-events: auto;
+        }
+        .multiselect-checkboxes label {
+            display: flex;
+            align-items: center;
+            padding: 0.5rem;
+            border-radius: 0.25rem;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+        .multiselect-checkboxes label:hover {
+            background-color: rgba(179, 19, 152, 0.1);
+        }
+        .multiselect-checkboxes input {
+            margin-right: 0.75rem;
+            height: 1rem;
+            width: 1rem;
+            accent-color: var(--primary-color-light);
+        }
+
+        .form-error {
+            color: #ef4444; /* red-500 */
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .form-error.visible {
+            display: block;
+            opacity: 1;
         }
     </style>
 </head>
@@ -396,10 +484,8 @@
             <div class="hidden md:flex items-center space-x-8 text-sm font-semibold">
                 <a href="#about" class="nav-link">About Us</a>
                 <a href="#courses" class="nav-link">Courses</a>
-                <a href="#faculty" class="nav-link">Faculty</a>
-                <a href="#gallery" class="nav-link">Gallery</a>
+                <a href="#admission" class="nav-link">Admission</a>
                 <a href="#branches" class="nav-link">Branches</a>
-                <a href="#fees" class="nav-link">Fees</a>
                 <a href="#timings" class="nav-link">Timings</a>
                 <a href="#contact" class="nav-link">Contact</a>
             </div>
@@ -416,10 +502,8 @@
             <div class="flex flex-col items-center space-y-4 text-sm font-semibold">
                 <a href="#about" class="nav-link">About Us</a>
                 <a href="#courses" class="nav-link">Courses</a>
-                <a href="#faculty" class="nav-link">Faculty</a>
-                <a href="#gallery" class="nav-link">Gallery</a>
+                <a href="#admission" class="nav-link">Admission</a>
                 <a href="#branches" class="nav-link">Branches</a>
-                <a href="#fees" class="nav-link">Fees</a>
                 <a href="#timings" class="nav-link">Timings</a>
                 <a href="#contact" class="nav-link">Contact</a>
             </div>
@@ -448,248 +532,268 @@
         </div>
     </section>
 
-    <!-- About Us Section -->
-    <section id="about" class="full-screen-section sticky-card">
-        <div class="container mx-auto px-4 p-6 md:p-8 flex flex-col items-center justify-center max-w-4xl">
-            <div id="about-content-wrapper" class="w-full text-center z-10">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-fuchsia-brand">About Our Academy</h2>
-                <p id="about-text" class="text-base md:text-lg leading-relaxed">
-                    Yuga Music Academy is dedicated to nurturing musical talent of all ages and skill levels. Our mission is to provide a supportive and inspiring environment where students can master their chosen instrument and develop a lifelong love for music. With a team of passionate and experienced educators, we offer personalized learning experiences that cater to each student's unique goals. Join us and start your incredible musical journey today!
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <main class="relative z-20" style="background-color: var(--bg-color-light);">
-        <!-- Courses Section -->
-        <section id="courses" class="full-screen-section text-center flex-col">
-            <div class="container mx-auto px-4 w-full">
-                <h2 class="text-3xl md:text-4xl font-bold mb-8 text-fuchsia-brand" data-aos="fade-down">Our Courses</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="glass-bg p-8 rounded-lg card-hover-effect" data-aos="card-entrance">
-                        <div class="text-6xl text-fuchsia-brand mb-4">🎸</div>
-                        <h3 class="text-2xl font-semibold mb-2 text-on-glass">Guitar</h3>
-                        <p class="text-on-glass">Learn to strum your favorite tunes with our comprehensive guitar lessons for all skill levels.</p>
-                    </div>
-                    <div class="glass-bg p-8 rounded-lg card-hover-effect" data-aos="card-entrance" data-aos-delay="150">
-                        <div class="text-6xl text-fuchsia-brand mb-4">🎹</div>
-                        <h3 class="text-2xl font-semibold mb-2 text-on-glass">Piano</h3>
-                        <p class="text-on-glass">From classical pieces to modern pop, master the art of piano playing with our expert instructors.</p>
-                    </div>
-                    <div class="glass-bg p-8 rounded-lg card-hover-effect" data-aos="card-entrance" data-aos-delay="300">
-                        <div class="text-6xl text-fuchsia-brand mb-4">🥁</div>
-                        <h3 class="text-2xl font-semibold mb-2 text-on-glass">Drums</h3>
-                        <p class="text-on-glass">Find your rhythm and beat with our dynamic and engaging drum lessons for aspiring drummers.</p>
-                    </div>
-                    <div class="glass-bg p-8 rounded-lg card-hover-effect" data-aos="card-entrance">
-                        <div class="text-6xl text-fuchsia-brand mb-4">🎵</div>
-                        <h3 class="text-2xl font-semibold mb-2 text-on-glass">Music Theory</h3>
-                        <p class="text-on-glass">Build a strong foundation and understand the language of music with our theory classes.</p>
-                    </div>
-                    <div class="glass-bg p-8 rounded-lg card-hover-effect" data-aos="card-entrance" data-aos-delay="150">
-                        <div class="text-6xl text-fuchsia-brand mb-4">🎤</div>
-                        <h3 class="text-2xl font-semibold mb-2 text-on-glass">Vocal Training</h3>
-                        <p class="text-on-glass">Discover your true voice and improve your singing technique with our professional vocal coaches.</p>
-                    </div>
-                    <div class="glass-bg p-8 rounded-lg card-hover-effect" data-aos="card-entrance" data-aos-delay="300">
-                        <div class="text-6xl text-fuchsia-brand mb-4">✍️</div>
-                        <h3 class="text-2xl font-semibold mb-2 text-on-glass">Music Composition</h3>
-                        <p class="text-on-glass">Learn to write and arrange your own music with advanced composition techniques.</p>
+    <!-- This new div wraps the sticky section and the main content to contain the sticky effect -->
+    <div>
+        <!-- About Us Section -->
+        <section id="about" class="full-screen-section sticky-card">
+            <div class="container mx-auto px-4 p-6 md:p-8 flex flex-col items-start justify-center max-w-4xl">
+                <div id="about-content-wrapper" class="w-full text-left z-10">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6 text-fuchsia-brand">About Our Academy</h2>
+                    <div class="text-base md:text-lg leading-relaxed space-y-4">
+                        <p>
+                            Yuga Music Academy started from humble beginnings and today runs two branches in Kollam district – Karunagappally and Kottarakkara. Our mission is simple: to make quality music education accessible to all, with no age limits.
+                        </p>
+                        <p>
+                            The academy was founded by V. Devakiran, vocalist, composer, lyricist, kathikan, and tabla artist (Praveshika Poorn in Tabla, ABGMV Mumbai), and Manupriyan Kottarakkara, keyboardist, music producer, and Trinity College London–based instructor. Their shared passion for music and teaching led to the birth of Yuga and their band Kilimanjaroo.
+                        </p>
+                        <p>
+                            At Yuga, learning is performance-oriented, with special training for Kalolsavam competitions. We provide personalized guidance for every student to grow with confidence and creativity.
+                        </p>
+                        <p class="font-semibold text-fuchsia-brand/90 pt-2">
+                            Begin your journey with us – where music becomes a lifelong companion.
+                        </p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Faculty Details Section -->
-        <section id="faculty" class="full-screen-section text-center">
-            <div class="container mx-auto px-4">
-                <h2 class="text-3xl md:text-4xl font-bold mb-12 text-fuchsia-brand" data-aos="fade-down">Meet Our Faculty</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Faculty 1 -->
-                    <div class="glass-bg p-6 rounded-lg card-hover-effect" data-aos="zoom-in-up">
-                        <img src="https://placehold.co/200x200/9c0088/ffffff?text=John" alt="Faculty member" class="rounded-full w-32 h-32 mx-auto mb-4 object-cover">
-                        <h3 class="text-xl font-semibold text-on-glass">John Doe</h3>
-                        <p class="text-fuchsia-brand">Lead Guitar Instructor</p>
-                        <p class="mt-2 text-on-glass text-sm">John has been teaching guitar for over 15 years and has performed in numerous bands.</p>
-                    </div>
-                    <!-- Faculty 2 -->
-                    <div class="glass-bg p-6 rounded-lg card-hover-effect" data-aos="zoom-in-up" data-aos-delay="150">
-                        <img src="https://placehold.co/200x200/9c0088/ffffff?text=Jane" alt="Faculty member" class="rounded-full w-32 h-32 mx-auto mb-4 object-cover">
-                        <h3 class="text-xl font-semibold text-on-glass">Jane Smith</h3>
-                        <p class="text-fuchsia-brand">Piano & Keyboard</p>
-                        <p class="mt-2 text-on-glass text-sm">A graduate of the Royal Academy of Music, Jane brings a wealth of classical expertise.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Photo Gallery Section -->
-        <section id="gallery" class="full-screen-section flex-col">
-            <div class="container mx-auto px-4 md:px-10 lg:px-20 w-full text-center">
-                <h2 class="text-3xl md:text-4xl font-bold mb-12 text-fuchsia-brand" data-aos="fade-down">Photo Gallery</h2>
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-                    <!-- Dynamically sized gallery items for masonry effect -->
-                    <div class="gallery-item col-span-1 sm:col-span-2 row-span-2" data-aos="fade-right">
-                        <img src="https://placehold.co/800x600/9c0088/ffffff?text=STUDIO+SESSIONS" alt="Studio Sessions" class="gallery-thumbnail" data-caption="Moments from our studio sessions.">
-                        <div class="gallery-overlay">
-                            <span class="gallery-caption">Studio Sessions</span>
-                        </div>
-                    </div>
-                    <div class="gallery-item col-span-1" data-aos="fade-down">
-                        <img src="https://placehold.co/400x400/450051/ffffff?text=PERFORMANCE+NIGHT" alt="Performance Nights" class="gallery-thumbnail" data-caption="Our students showcasing their talent on stage.">
-                        <div class="gallery-overlay">
-                            <span class="gallery-caption">Performance Night</span>
-                        </div>
-                    </div>
-                    <div class="gallery-item col-span-1 sm:col-span-1 row-span-2" data-aos="fade-left">
-                        <img src="https://placehold.co/400x600/9c0088/ffffff?text=MASTERCLASS+WITH+GURUS" alt="Masterclass with Gurus" class="gallery-thumbnail" data-caption="Learning from the masters.">
-                        <div class="gallery-overlay">
-                            <span class="gallery-caption">Masterclass with Gurus</span>
-                        </div>
-                    </div>
-                    <div class="gallery-item col-span-1" data-aos="fade-up">
-                        <img src="https://placehold.co/400x400/450051/ffffff?text=THEORY+CLASS" alt="Music Theory Classes" class="gallery-thumbnail" data-caption="Deep dive into the language of music.">
-                        <div class="gallery-overlay">
-                            <span class="gallery-caption">Music Theory Classes</span>
-                        </div>
-                    </div>
-                    <div class="gallery-item col-span-1 sm:col-span-2" data-aos="zoom-in">
-                        <img src="https://placehold.co/800x400/9c0088/ffffff?text=GRADUATION+CEREMONY" alt="Graduation Ceremony" class="gallery-thumbnail" data-caption="Celebrating our graduates.">
-                        <div class="gallery-overlay">
-                            <span class="gallery-caption">Graduation Ceremony</span>
-                        </div>
-                    </div>
-                    <div class="gallery-item col-span-1 sm:col-span-2" data-aos="zoom-in" data-aos-delay="100">
-                        <img src="https://placehold.co/800x400/450051/ffffff?text=PRACTICE+ROOMS" alt="Practice Rooms" class="gallery-thumbnail" data-caption="Focus and practice in a perfect environment.">
-                        <div class="gallery-overlay">
-                            <span class="gallery-caption">Practice Rooms</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Branches & Locations Section -->
-        <section id="branches" class="full-screen-section text-center">
-            <div class="container mx-auto px-4">
-                <h2 class="text-3xl md:text-4xl font-bold mb-12 text-fuchsia-brand" data-aos="fade-down">Our Branches</h2>
-                <div class="grid lg:grid-cols-2 gap-12 items-start">
-                    <!-- Karnagappally Branch -->
-                    <div data-aos="fade-right">
-                        <div class="text-left glass-bg p-8 rounded-lg mb-6">
-                            <h3 class="text-2xl md:text-3xl font-semibold mb-4 text-fuchsia-brand">Karnagappally</h3>
-                            <p class="text-on-glass mb-4">123 Music Lane, Harmony Street, <br> Karnagappally, 12345</p>
-                        </div>
-                        <div class="w-full h-80 rounded-lg shadow-xl overflow-hidden">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434508405!2d144.9537353155182!3d-37.81720547975171!2m3!1f0!2f0!3f0!3m2!1i1022!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf577d6f5f9a721d!2sFederation%20Square!5e0!3m2!1sen!2sau!4v1612260000000!5m2!1sen!2sau" class="w-full h-full border-0" allowfullscreen="" loading="lazy"></iframe>
-                        </div>
-                    </div>
-                    <!-- Kottarakkara Branch -->
-                    <div data-aos="fade-left">
-                         <div class="text-left glass-bg p-8 rounded-lg mb-6">
-                            <h3 class="text-2xl md:text-3xl font-semibold mb-4 text-fuchsia-brand">Kottarakkara</h3>
-                            <p class="text-on-glass mb-4">456 Rhythmic Avenue, Melody Road, <br> Kottarakkara, 67890</p>
-                        </div>
-                        <div class="w-full h-80 rounded-lg shadow-xl overflow-hidden">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.521260322283!2d106.81956131535694!3d-6.194741395514638!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5390917b759%3A0x6b45e67356080477!2sNational%20Monument!5e0!3m2!1sen!2sid!4v1612260000001!5m2!1sen!2sid" class="w-full h-full border-0" allowfullscreen="" loading="lazy"></iframe>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Fees Section -->
-        <section id="fees" class="full-screen-section text-center flex-col">
-            <div class="container mx-auto px-4">
-                <h2 class="text-3xl md:text-4xl font-bold mb-8 text-fuchsia-brand" data-aos="fade-down">Our Fees</h2>
-
-                <!-- Branch Selector for Fees -->
-                <div id="fee-branch-selector" class="flex justify-center mb-12" data-aos="zoom-in">
-                    <div class="glass-bg p-1 rounded-full flex space-x-1">
-                        <button data-branch="karnagappally" class="branch-btn active px-4 py-2 sm:px-8 sm:py-3 rounded-full text-sm font-semibold transition-colors">Karnagappally</button>
-                        <button data-branch="kottarakkara" class="branch-btn px-4 py-2 sm:px-8 sm:py-3 rounded-full text-sm font-semibold transition-colors">Kottarakkara</button>
-                    </div>
+        <main class="relative z-20" style="background-color: var(--bg-color-light);">
+            <!-- NEW: Performance Showcase Section -->
+            <section id="performance" class="py-16 md:py-24">
+                <div class="container mx-auto px-4 text-center">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4" data-aos="fade-down">Learn. Perform. Shine.</h2>
+                    <p class="text-base md:text-lg max-w-2xl mx-auto mb-12" data-aos="fade-down" data-aos-delay="100">
+                        Our curriculum is designed to be performance-oriented, giving students regular opportunities to showcase their talent on stage.
+                    </p>
                 </div>
                 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- Group Classes Card -->
-                    <div class="glass-bg p-8 rounded-lg card-hover-effect" data-aos="flip-left">
-                        <h4 class="text-2xl font-semibold mb-4 text-fuchsia-brand">Group Classes</h4>
-                        <p class="text-on-glass mb-4">Perfect for learning and collaborating with peers.</p>
-                        <p id="fee-group-price" class="text-4xl font-bold text-fuchsia-brand mb-4"></p>
-                        <ul id="fee-group-details" class="text-on-glass space-y-2 text-sm text-left mx-auto max-w-max">
-                            <!-- Details will be populated by JS -->
-                        </ul>
-                    </div>
-                    <!-- 1:1 Lessons Card -->
-                    <div class="glass-bg p-8 rounded-lg card-hover-effect" data-aos="flip-left" data-aos-delay="150">
-                        <h4 class="text-2xl font-semibold mb-4 text-fuchsia-brand">1:1 Lessons</h4>
-                        <p class="text-on-glass mb-4">Personalized instruction tailored to your unique goals.</p>
-                        <p id="fee-individual-price" class="text-4xl font-bold text-fuchsia-brand mb-4"></p>
-                        <ul id="fee-individual-details" class="text-on-glass space-y-2 text-sm text-left mx-auto max-w-max">
-                            <!-- Details will be populated by JS -->
-                        </ul>
-                    </div>
-                    <!-- Family Package Card -->
-                    <div class="glass-bg p-8 rounded-lg card-hover-effect" data-aos="flip-left" data-aos-delay="300">
-                        <h4 class="text-2xl font-semibold mb-4 text-fuchsia-brand">Family Package</h4>
-                        <p class="text-on-glass mb-4">Discounted rates for families who learn together.</p>
-                        <p id="fee-family-price" class="text-4xl font-bold text-fuchsia-brand mb-4"></p>
-                        <ul id="fee-family-details" class="text-on-glass space-y-2 text-sm text-left mx-auto max-w-max">
-                            <!-- Details will be populated by JS -->
-                        </ul>
+                <!-- Interactive Scrolling Photo Collage -->
+                <div id="collage-container" class="relative w-full overflow-hidden">
+                    <div id="collage-wrapper" class="flex">
+                        <!-- Image Set 1 -->
+                        <img src="1.jpg" alt="performance image 1" class="collage-image">
+                        <img src="10.jpg" alt="performance image 10" class="collage-image">
+                        <img src="3.jpg" alt="performance image 3" class="collage-image">
+                        <img src="12.jpg" alt="performance image 12" class="collage-image">
+                        <img src="5.jpg" alt="performance image 5" class="collage-image">
+                        <img src="7.jpg" alt="performance image 7" class="collage-image">
+                        <img src="9.jpg" alt="performance image 9" class="collage-image">
+                        <img src="2.jpg" alt="performance image 2" class="collage-image">
+                        <img src="11.jpg" alt="performance image 11" class="collage-image">
+                        <img src="4.jpg" alt="performance image 4" class="collage-image">
+                        <img src="13.jpg" alt="performance image 13" class="collage-image">
+                        <img src="6.jpg" alt="performance image 6" class="collage-image">
+                        <img src="14.jpg" alt="performance image 6" class="collage-image">
+                        
+                        <!-- Image Set 2 (Duplicate for seamless loop) -->
+                        <img src="1.jpg" alt="performance image 1" class="collage-image">
+                        <img src="10.jpg" alt="performance image 10" class="collage-image">
+                        <img src="3.jpg" alt="performance image 3" class="collage-image">
+                        <img src="12.jpg" alt="performance image 12" class="collage-image">
+                        <img src="5.jpg" alt="performance image 5" class="collage-image">
+                        <img src="7.jpg" alt="performance image 7" class="collage-image">
+                        <img src="9.jpg" alt="performance image 9" class="collage-image">
+                        <img src="2.jpg" alt="performance image 2" class="collage-image">
+                        <img src="11.jpg" alt="performance image 11" class="collage-image">
+                        <img src="4.jpg" alt="performance image 4" class="collage-image">
+                        <img src="13.jpg" alt="performance image 13" class="collage-image">
+                        <img src="6.jpg" alt="performance image 6" class="collage-image">
+                        <img src="14.jpg" alt="performance image 6" class="collage-image">
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Timings Section -->
-        <section id="timings" class="full-screen-section text-center flex-col">
-             <div class="container mx-auto px-4">
-                <h2 class="text-3xl md:text-4xl font-bold mb-8 text-fuchsia-brand" data-aos="fade-down">Class Timings</h2>
+            <!-- Courses Section -->
+            <section id="courses" class="full-screen-section text-center flex-col">
+                <div class="container mx-auto px-4 w-full">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-8 text-fuchsia-brand" data-aos="fade-down">Our Courses</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Carnatic Music -->
+                        <div class="course-card" style="background-image: url('carnatic_music.jpg');" data-aos="card-entrance">
+                            <div class="course-card-overlay"></div>
+                            <div class="course-card-content">
+                                <h3 class="text-3xl md:text-4xl font-semibold text-white">Carnatic Music</h3>
+                                <p class="course-card-description">This course teaches the fundamentals of Carnatic music. Students develop voice culture, pitch accuracy, and rhythmic understanding through structured lessons.</p>
+                            </div>
+                        </div>
+                         <!-- Violin -->
+                        <div class="course-card" style="background-image: url('violin.jpg');" data-aos="card-entrance" data-aos-delay="150">
+                            <div class="course-card-overlay"></div>
+                            <div class="course-card-content">
+                                <h3 class="text-3xl md:text-4xl font-semibold text-white">Violin</h3>
+                                <p class="course-card-description">Learn fingering, bowing, and raga-based melodies with structured exercises and compositions. Develop musical understanding, technique, and expression on the violin.</p>
+                            </div>
+                        </div>
+                        <!-- Tabla -->
+                        <div class="course-card" style="background-image: url('tabla.jpg');" data-aos="card-entrance" data-aos-delay="300">
+                            <div class="course-card-overlay"></div>
+                            <div class="course-card-content">
+                                <h3 class="text-3xl md:text-4xl font-semibold text-white">Tabla</h3>
+                                <p class="course-card-description">Taught with ABGMV Mandal, Mumbai syllabus, this course covers the principles of Hindustani rhythm, compositions, and bols. Students gain structured practice in technique and timing.</p>
+                            </div>
+                        </div>
+                        <!-- Keyboard -->
+                        <div class="course-card" style="background-image: url('keyboard.jpg');" data-aos="card-entrance">
+                            <div class="course-card-overlay"></div>
+                            <div class="course-card-content">
+                                <h3 class="text-3xl md:text-4xl font-semibold text-white">Keyboard</h3>
+                                <p class="course-card-description">Following the Trinity College London syllabus, this course covers scales, chords, and music theory. Students build technical skills and understanding of harmony and melody.</p>
+                            </div>
+                        </div>
+                        <!-- Guitar -->
+                        <div class="course-card" style="background-image: url('guitar.jpg');" data-aos="card-entrance" data-aos-delay="150">
+                            <div class="course-card-overlay"></div>
+                            <div class="course-card-content">
+                                <h3 class="text-3xl md:text-4xl font-semibold text-white">Guitar</h3>
+                                <p class="course-card-description">Based on Trinity College London syllabus, this course teaches chords, strumming, finger exercises, and music reading. Students progress step by step from basics to advanced techniques.</p>
+                            </div>
+                        </div>
+                        <!-- Drums -->
+                        <div class="course-card" style="background-image: url('drums.jpg');" data-aos="card-entrance" data-aos-delay="300">
+                            <div class="course-card-overlay"></div>
+                            <div class="course-card-content">
+                                <h3 class="text-3xl md:text-4xl font-semibold text-white">Drums</h3>
+                                <p class="course-card-description">Structured on Trinity College London syllabus, this course focuses on rhythm patterns, hand and foot coordination, and drumming techniques. Lessons include exercises to develop timing and control.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-                <!-- Branch Selector for Timings -->
-                <div id="timing-branch-selector" class="flex justify-center mb-12" data-aos="zoom-in">
-                    <div class="glass-bg p-1 rounded-full flex space-x-1">
-                        <button data-branch="karnagappally" class="branch-btn active px-4 py-2 sm:px-8 sm:py-3 rounded-full text-sm font-semibold transition-colors">Karnagappally</button>
-                        <button data-branch="kottarakkara" class="branch-btn px-4 py-2 sm:px-8 sm:py-3 rounded-full text-sm font-semibold transition-colors">Kottarakkara</button>
+            <!-- Admission Enquiry Section -->
+            <section id="admission" class="full-screen-section">
+                <div class="container mx-auto px-4">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center text-fuchsia-brand" data-aos="fade-down">Admission Enquiry</h2>
+                    <div class="max-w-2xl mx-auto glass-bg p-8 rounded-xl" data-aos="fade-up">
+                        <form id="admission-form" novalidate>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                                <div>
+                                    <label for="branch" class="form-label">Branch</label>
+                                    <select id="branch" name="branch" class="form-select" required>
+                                        <option value="" disabled selected>Select a branch</option>
+                                        <option value="karnagappally">Karnagappally</option>
+                                        <option value="kottarakkara">Kottarakkara</option>
+                                    </select>
+                                    <span id="branch-error" class="form-error"></span>
+                                </div>
+                                <div>
+                                    <label for="name" class="form-label">Full Name</label>
+                                    <input type="text" id="name" name="name" class="form-input" placeholder="e.g., John Doe" required pattern="[A-Za-z\s]+">
+                                    <span id="name-error" class="form-error"></span>
+                                </div>
+                            </div>
+                            <div class="mb-6">
+                                <label for="phone" class="form-label">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" class="form-input" placeholder="10-digit number" required pattern="\d{10}" maxlength="10">
+                                <span id="phone-error" class="form-error"></span>
+                            </div>
+                             <div class="mb-6">
+                                <label class="form-label">Interested Courses</label>
+                                <div class="multiselect-container" id="courses-multiselect">
+                                    <div class="multiselect-box" id="courses-select-box" tabindex="0">
+                                        <span class="text-on-glass/60">Select Courses...</span>
+                                        <svg class="w-5 h-5 text-on-glass/80" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                    </div>
+                                    <div class="multiselect-checkboxes" id="courses-checkboxes">
+                                        <label><input type="checkbox" value="Carnatic Music"> Carnatic Music</label>
+                                        <label><input type="checkbox" value="Violin"> Violin</label>
+                                        <label><input type="checkbox" value="Tabla"> Tabla</label>
+                                        <label><input type="checkbox" value="Keyboard"> Keyboard</label>
+                                        <label><input type="checkbox" value="Guitar"> Guitar</label>
+                                        <label><input type="checkbox" value="Drums"> Drums</label>
+                                    </div>
+                                </div>
+                                 <span id="courses-error" class="form-error"></span>
+                            </div>
+                            <div class="mb-8">
+                                 <label for="questions" class="form-label">Questions / Message (Optional)</label>
+                                 <textarea id="questions" name="questions" rows="4" class="form-textarea" placeholder="Any questions you have..."></textarea>
+                            </div>
+                            <button type="submit" class="w-full px-8 py-4 bg-fuchsia-brand text-white font-bold rounded-full shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-fuchsia-brand/50">
+                                Send Enquiry via WhatsApp
+                            </button>
+                        </form>
                     </div>
                 </div>
-                
-                <div id="timings-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto" data-aos="fade-up">
-                    <!-- Timings will be populated by JS here -->
-                </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Contact Details Section -->
-        <section id="contact" class="full-screen-section text-center">
-            <div class="container mx-auto px-4">
-                <h2 class="text-3xl md:text-4xl font-bold mb-12 text-fuchsia-brand" data-aos="fade-down">Get in Touch</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-                    <!-- Email -->
-                    <div class="glass-bg p-8 rounded-lg card-hover-effect" data-aos="fade-up">
-                        <div class="text-4xl text-fuchsia-brand mb-2">📧</div>
-                        <h3 class="text-xl font-semibold mb-2 text-on-glass">Email</h3>
-                        <p class="text-on-glass break-words">contact@yugamusic.com</p>
-                    </div>
-                    <!-- Phone -->
-                    <div class="glass-bg p-8 rounded-lg card-hover-effect" data-aos="fade-up" data-aos-delay="150">
-                        <div class="text-4xl text-fuchsia-brand mb-2">📞</div>
-                        <h3 class="text-xl font-semibold mb-2 text-on-glass">Phone</h3>
-                        <p class="text-on-glass break-words">+91 6282800074</p>
-                        <p class="text-on-glass break-words">+91 8606421364</p>
-                    </div>
-                    <!-- WhatsApp -->
-                    <div class="glass-bg p-8 rounded-lg card-hover-effect" data-aos="fade-up" data-aos-delay="300">
-                        <div class="text-4xl text-fuchsia-brand mb-2">📱</div>
-                        <h3 class="text-xl font-semibold mb-2 text-on-glass">WhatsApp</h3>
-                        <p class="text-on-glass break-words">+91 8089076077</p>
+            <!-- Branches & Locations Section -->
+            <section id="branches" class="full-screen-section text-center">
+                <div class="container mx-auto px-4">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-12 text-fuchsia-brand" data-aos="fade-down">Our Branches</h2>
+                    <div class="grid lg:grid-cols-2 gap-12 items-start">
+                        <!-- Karnagappally Branch -->
+                        <div data-aos="fade-right">
+                            <div class="text-left glass-bg p-8 rounded-lg mb-1">
+                                <h3 class="text-2xl md:text-3xl font-semibold mb-4 text-fuchsia-brand">Karnagappally</h3>
+                                <p class="text-on-glass mb-4">Near Engineering College, Veluthamanal <br> Karnagappally, Kollam <br>  Kerala, 690523</p>
+                            </div>
+                            <div class="w-full h-80 rounded-lg shadow-xl overflow-hidden">
+                                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3939.9893544330853!2d76.54955764381693!3d9.06473346785799!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b060503e6725aed%3A0xce4145fb2efeda91!2sYUGA%20Music%20Academy%2C%20Karunagappally!5e0!3m2!1sen!2sin!4v1759252978973!5m2!1sen!2sin" class="w-full h-full border-0" allowfullscreen="" loading="lazy"></iframe>
+                            </div>
+                        </div>
+                        <!-- Kottarakkara Branch -->
+                        <div data-aos="fade-left">
+                             <div class="text-left glass-bg p-8 rounded-lg mb-1">
+                                <h3 class="text-2xl md:text-3xl font-semibold mb-4 text-fuchsia-brand">Kottarakkara</h3>
+                                <p class="text-on-glass mb-4">Factory Jn., Neduvathoor, <br> Kottarakkara, Kollam <br> Kerala, 673582</p>
+                            </div>
+                            <div class="w-full h-80 rounded-lg shadow-xl overflow-hidden">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.771893328251!2d76.74776901059708!3d8.993125591029484!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b060b81fed1c5e1%3A0x87b2fc9179812bf0!2sYUGA%20Music%20Academy%2C%20Neduvathoor%2C%20Kottarakkara!5e0!3m2!1sen!2sin!4v1759252696610!5m2!1sen!2sin" class="w-full h-full border-0" allowfullscreen="" loading="lazy"></iframe>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
-    </main>
+            </section>
+
+            <!-- Timings Section -->
+            <section id="timings" class="full-screen-section text-center flex-col">
+                 <div class="container mx-auto px-4">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-8 text-fuchsia-brand" data-aos="fade-down">Class Timings</h2>
+
+                    <!-- Branch Selector for Timings -->
+                    <div id="timing-branch-selector" class="flex justify-center mb-12" data-aos="zoom-in">
+                        <div class="glass-bg p-1 rounded-full flex space-x-1">
+                            <button data-branch="karnagappally" class="branch-btn active px-4 py-2 sm:px-8 sm:py-3 rounded-full text-sm font-semibold transition-colors">Karnagappally</button>
+                            <button data-branch="kottarakkara" class="branch-btn px-4 py-2 sm:px-8 sm:py-3 rounded-full text-sm font-semibold transition-colors">Kottarakkara</button>
+                        </div>
+                    </div>
+                    
+                    <div id="timings-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto" data-aos="fade-up">
+                        <!-- Timings will be populated by JS here -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Details Section -->
+            <section id="contact" class="full-screen-section text-center">
+                <div class="container mx-auto px-4">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-12 text-fuchsia-brand" data-aos="fade-down">Get in Touch</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                        <!-- Email -->
+                        <div class="glass-bg p-8 rounded-lg card-hover-effect" data-aos="fade-up">
+                            <div class="text-4xl text-fuchsia-brand mb-2">📧</div>
+                            <h3 class="text-xl font-semibold mb-2 text-on-glass">Email</h3>
+                            <p class="text-on-glass break-words">contact@yugamusic.com</p>
+                        </div>
+                        <!-- Phone -->
+                        <div class="glass-bg p-8 rounded-lg card-hover-effect" data-aos="fade-up" data-aos-delay="150">
+                            <div class="text-4xl text-fuchsia-brand mb-2">📞</div>
+                            <h3 class="text-xl font-semibold mb-2 text-on-glass">Phone</h3>
+                            <p class="text-on-glass break-words">+91 6282800074</p>
+                            <p class="text-on-glass break-words">+91 8606421364</p>
+                        </div>
+                        <!-- WhatsApp -->
+                        <div class="glass-bg p-8 rounded-lg card-hover-effect" data-aos="fade-up" data-aos-delay="300">
+                            <div class="text-4xl text-fuchsia-brand mb-2">📱</div>
+                            <h3 class="text-xl font-semibold mb-2 text-on-glass">WhatsApp</h3>
+                            <p class="text-on-glass break-words">+91 8089076077</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
     <!-- Footer -->
     <footer class="bg-purple-logo text-white py-5">
         <div class="container mx-auto px-4 text-center mb-2">
@@ -697,29 +801,6 @@
             <p class="text-sm">&copy; 2024 Yuga Music Academy. All Rights Reserved.</p>
         </div>
     </footer>
-
-    <!-- Full-screen Gallery Modal -->
-    <div id="gallery-modal" class="hidden">
-        <button id="close-gallery-btn">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-10 h-10">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-        </button>
-        <button id="prev-btn" class="gallery-nav-btn">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 sm:w-8 sm:h-8">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12 15.75 4.5" />
-            </svg>
-        </button>
-        <div id="gallery-modal-content">
-            <img id="gallery-image" src="" alt="">
-            <p id="image-caption"></p>
-        </div>
-        <button id="next-btn" class="gallery-nav-btn">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 sm:w-8 sm:h-8">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-            </svg>
-        </button>
-    </div>
     
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
@@ -744,14 +825,6 @@
             const mobileMenu = document.getElementById('mobile-menu');
             const menuOpenIcon = document.getElementById('menu-open-icon');
             const menuCloseIcon = document.getElementById('menu-close-icon');
-            const galleryThumbnails = document.querySelectorAll('.gallery-thumbnail');
-            const galleryModal = document.getElementById('gallery-modal');
-            const closeGalleryBtn = document.getElementById('close-gallery-btn');
-            const prevBtn = document.getElementById('prev-btn');
-            const nextBtn = document.getElementById('next-btn');
-            const fullImage = document.getElementById('gallery-image');
-            const imageCaption = document.getElementById('image-caption');
-            let currentImageIndex = 0;
 
             // --- Advanced Header & Hero Scroll Effects ---
             const header = document.querySelector('.sticky-header');
@@ -765,7 +838,6 @@
                 const originalLogoSrc = 'yuga_logo_with_title.png';
                 const newLogoSrc = 'yuga_logo_with_title_white.png';
 
-                // 1. Hero fade-out logic (based on initial scroll)
                 const transitionStart = 100;
                 const transitionEnd = 400; 
                 const transitionZone = transitionEnd - transitionStart;
@@ -785,29 +857,24 @@
                     heroContent.style.opacity = 1 - progress;
                 }, { passive: true });
 
-                // 2. Header transformation and About text animation logic
                 const observerOptions = {
                     root: null,
-                    threshold: 0.2 // This is the 50% trigger point
+                    threshold: 0.2
                 };
 
                 const aboutSectionObserver = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
-                            // Header transformation
                             if (!header.classList.contains('transformed')) {
                                 header.classList.add('transformed');
                                 navbarLogo.src = newLogoSrc;
                             }
-                            // About text animation
                             aboutContentWrapper.classList.add('visible');
                         } else {
-                            // Revert header
                             if (header.classList.contains('transformed')) {
                                 header.classList.remove('transformed');
                                 navbarLogo.src = originalLogoSrc;
                             }
-                            // Hide about text
                             aboutContentWrapper.classList.remove('visible');
                         }
                     });
@@ -819,98 +886,57 @@
             // --- BRANCH DATA & LOGIC ---
             const branchData = {
                 karnagappally: {
-                    fees: {
-                        group: { price: "₹2,500", details: ["✅ 2 sessions per week", "✅ 60-minute classes", "✅ Performance opportunities"] },
-                        individual: { price: "₹5,000", details: ["✅ 1 session per week", "✅ 90-minute private classes", "✅ Customized curriculum"] },
-                        family: { price: "₹9,000", details: ["✅ For up to 4 family members", "✅ Includes both group and 1:1 sessions", "✅ Flexible timings"] }
-                    },
                     timings: {
-                        "Guitar": "Monday, 5:00 PM - 6:00 PM",
-                        "Piano": "Tuesday, 6:00 PM - 7:00 PM",
-                        "Drums": "Wednesday, 7:00 PM - 8:00 PM",
-                        "Music Theory": "Thursday, 5:00 PM - 6:00 PM",
-                        "Vocal Training": "Friday, 6:00 PM - 7:00 PM",
-                        "Music Composition": "Saturday, 4:00 PM - 5:00 PM"
+                        "Carnatic Music": "Sunday, 9:30 AM - 11:00 AM",
+                        "Violin": "Saturday, 5:15 PM - 6:45 PM",
+                        "Tabla": "Sunday, 4:30 PM - 6:00 PM",
+                        "Keyboard": "Thursday, 5:30 PM - 7:00 PM",
+                        "Guitar": "Friday, 5:15 PM - 6:45 PM",
+                        "Drums": "Sunday, 2:00 PM - 3:30 PM"
                     }
                 },
                 kottarakkara: {
-                    fees: {
-                        group: { price: "₹1,800", details: ["✅ 2 sessions per week", "✅ 60-minute classes", "✅ Performance opportunities"] },
-                        individual: { price: "₹4,000", details: ["✅ 1 session per week", "✅ 90-minute private classes", "✅ Customized curriculum"] },
-                        family: { price: "₹7,500", details: ["✅ For up to 4 family members", "✅ Includes both group and 1:1 sessions", "✅ Flexible timings"] }
-                    },
                     timings: {
-                        "Guitar": "Tuesday, 5:00 PM - 6:00 PM",
-                        "Piano": "Wednesday, 6:00 PM - 7:00 PM",
-                        "Drums": "Thursday, 7:00 PM - 8:00 PM",
-                        "Music Theory": "Friday, 5:00 PM - 6:00 PM",
-                        "Vocal Training": "Saturday, 6:00 PM - 7:00 PM",
-                        "Music Composition": "Sunday, 4:00 PM - 5:00 PM"
+                        "Carnatic Music": "Sunday, 3:00 PM - 4:30 PM",
+                        "Violin": "Sunday, 4:30 PM - 6:00 PM",
+                        "Tabla": "Sunday, 12:00 PM - 1:30 PM",
+                        "Keyboard": "Sunday, 1:30 PM - 3:00 PM \n Tuesday, 5:30 PM - 7:00 PM",
+                        "Guitar": "Sunday, 1:30 PM - 3:00 PM",
+                        "Drums": "Sunday, 10:30 AM - 12:00 PM"
                     }
                 }
             };
 
-            const feeBranchSelector = document.getElementById('fee-branch-selector');
             const timingBranchSelector = document.getElementById('timing-branch-selector');
-            
-            const feeGroupPrice = document.getElementById('fee-group-price');
-            const feeGroupDetails = document.getElementById('fee-group-details');
-            const feeIndividualPrice = document.getElementById('fee-individual-price');
-            const feeIndividualDetails = document.getElementById('fee-individual-details');
-            const feeFamilyPrice = document.getElementById('fee-family-price');
-            const feeFamilyDetails = document.getElementById('fee-family-details');
             const timingsGrid = document.getElementById('timings-grid');
-
-            function updateFeeContent(branchKey) {
-                const data = branchData[branchKey];
-                
-                feeGroupPrice.innerHTML = `${data.fees.group.price}<span class="text-xl font-normal text-gray-400">/month</span>`;
-                feeGroupDetails.innerHTML = data.fees.group.details.map(item => `<li>${item}</li>`).join('');
-
-                feeIndividualPrice.innerHTML = `${data.fees.individual.price}<span class="text-xl font-normal text-gray-400">/month</span>`;
-                feeIndividualDetails.innerHTML = data.fees.individual.details.map(item => `<li>${item}</li>`).join('');
-
-                feeFamilyPrice.innerHTML = `${data.fees.family.price}<span class="text-xl font-normal text-gray-400">/month</span>`;
-                feeFamilyDetails.innerHTML = data.fees.family.details.map(item => `<li>${item}</li>`).join('');
-            }
 
             function updateTimingContent(branchKey) {
                 const data = branchData[branchKey];
-                timingsGrid.innerHTML = ''; // Clear previous timings
+                timingsGrid.innerHTML = '';
                 for (const course in data.timings) {
                     const timeSlot = data.timings[course];
                     const timingCard = `
                         <div class="glass-bg p-6 rounded-lg text-center">
                             <h4 class="text-xl font-semibold mb-2 text-fuchsia-brand">${course}</h4>
-                            <p class="text-on-glass">${timeSlot}</p>
+                            <p class="text-on-glass">${timeSlot.replace(/\n/g, '<br>')}</p>
                         </div>
                     `;
                     timingsGrid.innerHTML += timingCard;
                 }
             }
-
-            feeBranchSelector.addEventListener('click', (e) => {
-                if (e.target.tagName === 'BUTTON') {
-                    const selectedBranch = e.target.dataset.branch;
-                    feeBranchSelector.querySelectorAll('button').forEach(btn => btn.classList.remove('active'));
-                    e.target.classList.add('active');
-                    updateFeeContent(selectedBranch);
-                }
-            });
-
-            timingBranchSelector.addEventListener('click', (e) => {
-                if (e.target.tagName === 'BUTTON') {
-                    const selectedBranch = e.target.dataset.branch;
-                    timingBranchSelector.querySelectorAll('button').forEach(btn => btn.classList.remove('active'));
-                    e.target.classList.add('active');
-                    updateTimingContent(selectedBranch);
-                }
-            });
             
-            // Initial load
-            updateFeeContent('karnagappally');
-            updateTimingContent('karnagappally');
-            // --- END BRANCH LOGIC ---
+            if(timingBranchSelector && timingsGrid) {
+                timingBranchSelector.addEventListener('click', (e) => {
+                    if (e.target.tagName === 'BUTTON') {
+                        const selectedBranch = e.target.dataset.branch;
+                        timingBranchSelector.querySelectorAll('button').forEach(btn => btn.classList.remove('active'));
+                        e.target.classList.add('active');
+                        updateTimingContent(selectedBranch);
+                    }
+                });
+                updateTimingContent('karnagappally');
+            }
+
 
             // Mobile menu toggle
             mobileMenuToggle.addEventListener('click', () => {
@@ -918,46 +944,203 @@
                 menuOpenIcon.classList.toggle('hidden');
                 menuCloseIcon.classList.toggle('hidden');
             });
-            document.querySelectorAll('#mobile-menu a').forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenu.classList.add('hidden');
-                    menuOpenIcon.classList.remove('hidden');
-                    menuCloseIcon.classList.add('hidden');
+            
+            // --- REBUILT: Universal and Reliable Smooth Scroll ---
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+
+                    if (targetElement) {
+                        // Close mobile menu if open
+                        if (!mobileMenu.classList.contains('hidden')) {
+                            mobileMenu.classList.add('hidden');
+                            menuOpenIcon.classList.remove('hidden');
+                            menuCloseIcon.classList.add('hidden');
+                        }
+                        
+                        const headerOffset = document.querySelector('.sticky-header').offsetHeight;
+                        const elementPosition = targetElement.offsetTop;
+                        const offsetPosition = elementPosition - headerOffset;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: "smooth"
+                        });
+                    }
                 });
             });
 
-            // Gallery functionality
-            galleryThumbnails.forEach((thumbnail, index) => {
-                thumbnail.addEventListener('click', () => {
-                    currentImageIndex = index;
-                    openGalleryModal(thumbnail);
-                });
-            });
 
-            function openGalleryModal(thumbnail) {
-                fullImage.src = thumbnail.src;
-                imageCaption.textContent = thumbnail.dataset.caption;
-                galleryModal.classList.add('active');
+            // --- PERFORMANCE COLLAGE LOGIC ---
+            const collageContainer = document.getElementById('collage-container');
+            const collageWrapper = document.getElementById('collage-wrapper');
+            const performanceSection = document.getElementById('performance');
+
+            if (collageContainer && collageWrapper && performanceSection) {
+                let isDragging = false;
+                let startX;
+                let scrollLeftStart;
+                const autoScrollSpeed = 0.5;
+
+                const autoScroll = () => {
+                    if (!isDragging) {
+                        collageContainer.scrollLeft += autoScrollSpeed;
+                        if (collageContainer.scrollLeft >= collageWrapper.scrollWidth / 2) {
+                            collageContainer.scrollLeft = 0;
+                        }
+                    }
+                    requestAnimationFrame(autoScroll);
+                };
+
+                const startDrag = (e) => {
+                    isDragging = true;
+                    startX = (e.pageX || e.touches[0].pageX) - collageContainer.offsetLeft;
+                    scrollLeftStart = collageContainer.scrollLeft;
+                    collageContainer.classList.add('dragging');
+                };
+
+                const whileDrag = (e) => {
+                    if (!isDragging) return;
+                    e.preventDefault();
+                    const x = (e.pageX || e.touches[0].pageX) - collageContainer.offsetLeft;
+                    const walk = (x - startX) * 2;
+                    collageContainer.scrollLeft = scrollLeftStart - walk;
+                };
+
+                const stopDrag = () => {
+                    if (!isDragging) return;
+                    isDragging = false;
+                    collageContainer.classList.remove('dragging');
+                };
+
+                collageContainer.addEventListener('mousedown', startDrag);
+                collageContainer.addEventListener('mousemove', whileDrag);
+                collageContainer.addEventListener('mouseup', stopDrag);
+                collageContainer.addEventListener('mouseleave', stopDrag);
+                collageContainer.addEventListener('touchstart', startDrag, { passive: true });
+                collageContainer.addEventListener('touchmove', whileDrag, { passive: true });
+                collageContainer.addEventListener('touchend', stopDrag);
+
+                const collageObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            performanceSection.classList.add('is-visible');
+                            const images = collageWrapper.querySelectorAll('.collage-image');
+                            images.forEach((img, index) => {
+                                img.style.transitionDelay = `${index * 50}ms`;
+                            });
+                        } else {
+                            performanceSection.classList.remove('is-visible');
+                        }
+                    });
+                }, { threshold: 0.2 });
+
+                collageObserver.observe(performanceSection);
+                autoScroll();
             }
+            
+            // --- ADMISSION FORM LOGIC ---
+            const form = document.getElementById('admission-form');
+            const multiSelectContainer = document.getElementById('courses-multiselect');
 
-            closeGalleryBtn.addEventListener('click', () => {
-                galleryModal.classList.remove('active');
-            });
+            if (form && multiSelectContainer) {
+                const selectBox = document.getElementById('courses-select-box');
+                const checkboxesContainer = document.getElementById('courses-checkboxes');
+                const checkboxes = checkboxesContainer.querySelectorAll('input[type="checkbox"]');
+                const selectBoxText = selectBox.querySelector('span');
 
-            prevBtn.addEventListener('click', () => {
-                currentImageIndex = (currentImageIndex - 1 + galleryThumbnails.length) % galleryThumbnails.length;
-                updateGalleryImage();
-            });
+                // Toggle dropdown visibility with class
+                selectBox.addEventListener('click', () => {
+                    multiSelectContainer.classList.toggle('open');
+                });
 
-            nextBtn.addEventListener('click', () => {
-                currentImageIndex = (currentImageIndex + 1) % galleryThumbnails.length;
-                updateGalleryImage();
-            });
+                checkboxes.forEach(checkbox => {
+                    checkbox.addEventListener('change', () => {
+                        const selectedCourses = Array.from(checkboxes).filter(i => i.checked).map(i => i.value);
+                        if (selectedCourses.length === 0) {
+                            selectBoxText.textContent = 'Select Courses...';
+                            selectBoxText.classList.add('text-on-glass/60');
+                        } else if (selectedCourses.length === 1) {
+                            selectBoxText.textContent = selectedCourses[0];
+                            selectBoxText.classList.remove('text-on-glass/60');
+                        } else {
+                            selectBoxText.textContent = `${selectedCourses.length} courses selected`;
+                            selectBoxText.classList.remove('text-on-glass/60');
+                        }
+                    });
+                });
+                
+                // Close dropdown when clicking outside
+                document.addEventListener('click', (e) => {
+                    if (!multiSelectContainer.contains(e.target)) {
+                        multiSelectContainer.classList.remove('open');
+                    }
+                });
+                
+                // Helper function for showing errors
+                function showError(elementId, message) {
+                    const errorEl = document.getElementById(elementId);
+                    errorEl.textContent = message;
+                    errorEl.classList.add('visible');
+                }
 
-            function updateGalleryImage() {
-                const newImage = galleryThumbnails[currentImageIndex];
-                fullImage.src = newImage.src;
-                imageCaption.textContent = newImage.dataset.caption;
+                // Helper function for hiding errors
+                function hideAllErrors() {
+                    document.querySelectorAll('.form-error').forEach(el => el.classList.remove('visible'));
+                }
+
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    hideAllErrors();
+
+                    const branch = document.getElementById('branch').value;
+                    const name = document.getElementById('name').value.trim();
+                    const phone = document.getElementById('phone').value.trim();
+                    const questions = document.getElementById('questions').value.trim();
+                    const selectedCourses = Array.from(checkboxes).filter(i => i.checked).map(i => i.value);
+
+                    let isValid = true;
+
+                    if (branch === "") {
+                        showError('branch-error', 'Please select a branch.');
+                        isValid = false;
+                    }
+                    if (!/^[A-Za-z\s]+$/.test(name) || name === '') {
+                        showError('name-error', 'Please enter a valid name (alphabets only).');
+                        isValid = false;
+                    }
+                    if (!/^\d{10}$/.test(phone)) {
+                        showError('phone-error', 'Please enter a valid 10-digit phone number.');
+                        isValid = false;
+                    }
+                    if (selectedCourses.length === 0) {
+                        showError('courses-error', 'Please select at least one course.');
+                        isValid = false;
+                    }
+
+                    if (!isValid) return;
+
+                    const whatsAppNumber = branch === 'karnagappally' ? '918089076077' : '919037175586';
+                    const branchName = branch.charAt(0).toUpperCase() + branch.slice(1);
+
+                    let message = `*Admission Enquiry*\n\n` +
+                                  `*Branch:* ${branchName}\n` +
+                                  `*Name:* ${name}\n` +
+                                  `*Phone:* ${phone}\n` +
+                                  `*Interested Courses:* ${selectedCourses.join(', ')}\n\n`;
+                    
+                    if (questions) {
+                        message += `*Question/Message:*\n${questions}`;
+                    }
+                    
+                    const encodedMessage = encodeURIComponent(message);
+                    const whatsappUrl = `https://wa.me/${whatsAppNumber}?text=${encodedMessage}`;
+
+                    window.open(whatsappUrl, '_blank');
+                });
             }
 
             // --- 3D Background with Three.js ---
@@ -969,7 +1152,6 @@
             renderer.setPixelRatio(window.devicePixelRatio);
             renderer.setClearColor(0x000000, 0);
 
-            // Particle System (Musical Notes and Spheres)
             const particleCount = 500;
             const geometry = new THREE.BufferGeometry();
             const positions = [];
@@ -1002,7 +1184,6 @@
 
             camera.position.z = 50;
 
-            // Animate
             const animate = () => {
                 requestAnimationFrame(animate);
                 particles.rotation.x += 0.0005;
@@ -1012,7 +1193,6 @@
             
             animate();
 
-            // Mouse interaction for parallax effect
             let mouseX = 0;
             let mouseY = 0;
             document.addEventListener('mousemove', (e) => {
@@ -1028,7 +1208,6 @@
             
             renderer.setAnimationLoop(updateCamera);
 
-            // Handle window resizing
             window.addEventListener('resize', () => {
                 camera.aspect = window.innerWidth / window.innerHeight;
                 camera.updateProjectionMatrix();
@@ -1037,6 +1216,4 @@
         });
     </script>
 </body>
-
 </html>
-
