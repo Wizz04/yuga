@@ -4,9 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yuga Music Academy | Music Classes in Karnagappally & Kottarakkara</title>
-    <meta name="description" content="Discover expert music classes at Yuga Music Academy in Karnagappally & Kottarakkara. We offer guitar, piano, drums, and vocal training for all ages. Join us today!">
-    <link rel="canonical" href="https://yugamusic.in" />
+    <title>Yuga Music Academy</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
@@ -137,10 +135,24 @@
             100% { transform: rotate(360deg); }
         }
         
-        /* Branch Selector */
+        /* Branch Timing Selector */
         .branch-btn.active {
             background-color: var(--primary-color-light);
             color: white;
+        }
+        
+        /* New Branch Section Selector Box */
+        .branch-selector-box.active {
+            background-color: var(--primary-color-light);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(179, 19, 152, 0.3);
+        }
+        .branch-selector-box.active h3 {
+            color: white;
+        }
+        .branch-selector-box:hover {
+             transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
         
         /* General Hover Effect for Cards (e.g., Contact) */
@@ -486,7 +498,6 @@
             <div class="hidden md:flex items-center space-x-8 text-sm font-semibold">
                 <a href="#about" class="nav-link">About Us</a>
                 <a href="#courses" class="nav-link">Courses</a>
-                <a href="#admission" class="nav-link">Admission</a>
                 <a href="#branches" class="nav-link">Branches</a>
                 <a href="#timings" class="nav-link">Timings</a>
                 <a href="#contact" class="nav-link">Contact</a>
@@ -504,7 +515,6 @@
             <div class="flex flex-col items-center space-y-4 text-sm font-semibold">
                 <a href="#about" class="nav-link">About Us</a>
                 <a href="#courses" class="nav-link">Courses</a>
-                <a href="#admission" class="nav-link">Admission</a>
                 <a href="#branches" class="nav-link">Branches</a>
                 <a href="#timings" class="nav-link">Timings</a>
                 <a href="#contact" class="nav-link">Contact</a>
@@ -543,16 +553,13 @@
                     <h2 class="text-3xl md:text-4xl font-bold mb-6 text-fuchsia-brand">About Our Academy</h2>
                     <div class="text-base md:text-lg leading-relaxed space-y-4">
                         <p>
-                            Yuga Music Academy started from humble beginnings and today runs two branches in Kollam district – Karunagappally and Kottarakkara. Our mission is simple: to make quality music education accessible to all, with no age limits.
+                            Yuga Music Academy began with a simple vision – to bring quality music education to everyone. From our first branch in Karunagappally, we have now grown to Kottarakkara, welcoming students of all ages.
                         </p>
                         <p>
-                            The academy was founded by V. Devakiran, vocalist, composer, lyricist, kathikan, and tabla artist (Praveshika Poorn in Tabla, ABGMV Mumbai), and Manupriyan Kottarakkara, keyboardist, music producer, and Trinity College London–based instructor. Their shared passion for music and teaching led to the birth of Yuga and their band Kilimanjaroo.
-                        </p>
-                        <p>
-                            At Yuga, learning is performance-oriented, with special training for Kalolsavam competitions. We provide personalized guidance for every student to grow with confidence and creativity.
+                            Founded by V. Devakiran (vocalist, composer, tablist, Kathikan) and Manupriyan Kottarakkara (keyboardist, music producer, Digital creator), the academy focuses on performance-based training, with special guidance for Kalolsavam.
                         </p>
                         <p class="font-semibold text-fuchsia-brand/90 pt-2">
-                            Begin your journey with us – where music becomes a lifelong companion.
+                            At Yuga, learning goes beyond classes – it’s about building confidence, creativity, and a lifelong love for music.
                         </p>
                     </div>
                 </div>
@@ -662,86 +669,108 @@
                 </div>
             </section>
 
-            <!-- Admission Enquiry Section -->
-            <section id="admission" class="full-screen-section">
-                <div class="container mx-auto px-4">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center text-fuchsia-brand" data-aos="fade-down">Admission Enquiry</h2>
-                    <div class="max-w-2xl mx-auto glass-bg p-8 rounded-xl" data-aos="fade-up">
-                        <form id="admission-form" novalidate>
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                                <div>
-                                    <label for="branch" class="form-label">Branch</label>
-                                    <select id="branch" name="branch" class="form-select" required>
-                                        <option value="" disabled selected>Select a branch</option>
-                                        <option value="karnagappally">Karnagappally</option>
-                                        <option value="kottarakkara">Kottarakkara</option>
-                                    </select>
-                                    <span id="branch-error" class="form-error"></span>
-                                </div>
-                                <div>
-                                    <label for="name" class="form-label">Full Name</label>
-                                    <input type="text" id="name" name="name" class="form-input" placeholder="e.g., John Doe" required pattern="[A-Za-z\s]+">
-                                    <span id="name-error" class="form-error"></span>
-                                </div>
-                            </div>
-                            <div class="mb-6">
-                                <label for="phone" class="form-label">Phone Number</label>
-                                <input type="tel" id="phone" name="phone" class="form-input" placeholder="10-digit number" required pattern="\d{10}" maxlength="10">
-                                <span id="phone-error" class="form-error"></span>
-                            </div>
-                             <div class="mb-6">
-                                <label class="form-label">Interested Courses</label>
-                                <div class="multiselect-container" id="courses-multiselect">
-                                    <div class="multiselect-box" id="courses-select-box" tabindex="0">
-                                        <span class="text-on-glass/60">Select Courses...</span>
-                                        <svg class="w-5 h-5 text-on-glass/80" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                                    </div>
-                                    <div class="multiselect-checkboxes" id="courses-checkboxes">
-                                        <label><input type="checkbox" value="Carnatic Music"> Carnatic Music</label>
-                                        <label><input type="checkbox" value="Violin"> Violin</label>
-                                        <label><input type="checkbox" value="Tabla"> Tabla</label>
-                                        <label><input type="checkbox" value="Keyboard"> Keyboard</label>
-                                        <label><input type="checkbox" value="Guitar"> Guitar</label>
-                                        <label><input type="checkbox" value="Drums"> Drums</label>
-                                    </div>
-                                </div>
-                                 <span id="courses-error" class="form-error"></span>
-                            </div>
-                            <div class="mb-8">
-                                 <label for="questions" class="form-label">Questions / Message (Optional)</label>
-                                 <textarea id="questions" name="questions" rows="4" class="form-textarea" placeholder="Any questions you have..."></textarea>
-                            </div>
-                            <button type="submit" class="w-full px-8 py-4 bg-fuchsia-brand text-white font-bold rounded-full shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-fuchsia-brand/50">
-                                Send Enquiry via WhatsApp
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </section>
-
             <!-- Branches & Locations Section -->
-            <section id="branches" class="full-screen-section text-center">
-                <div class="container mx-auto px-4">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-12 text-fuchsia-brand" data-aos="fade-down">Our Branches</h2>
-                    <div class="grid lg:grid-cols-2 gap-12 items-start">
-                        <!-- Karnagappally Branch -->
-                        <div data-aos="fade-right">
-                            <div class="text-left glass-bg p-8 rounded-lg mb-1">
-                                <h3 class="text-2xl md:text-3xl font-semibold mb-4 text-fuchsia-brand">Karnagappally</h3>
-                                <p class="text-on-glass mb-4">Near Engineering College, Veluthamanal <br> Karnagappally, Kollam <br>  Kerala, 690523</p>
-                            </div>
-                            <div class="w-full h-80 rounded-lg shadow-xl overflow-hidden">
-                                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3939.9893544330853!2d76.54955764381693!3d9.06473346785799!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b060503e6725aed%3A0xce4145fb2efeda91!2sYUGA%20Music%20Academy%2C%20Karunagappally!5e0!3m2!1sen!2sin!4v1759252978973!5m2!1sen!2sin" class="w-full h-full border-0" allowfullscreen="" loading="lazy"></iframe>
+            <section id="branches" class="full-screen-section flex-col justify-start md:justify-center py-24">
+                <div class="container mx-auto px-4 w-full">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center text-fuchsia-brand" data-aos="fade-down">Our Branches</h2>
+                    
+                    <!-- Branch Selector Boxes -->
+                    <div id="branch-selectors" class="flex flex-col md:flex-row justify-center gap-6 md:gap-8 mb-12 max-w-4xl mx-auto" data-aos="fade-up">
+                        <!-- Karunagappally Selector -->
+                        <div data-branch="karunagappally" class="branch-selector-box active flex-1 text-center glass-bg p-6 rounded-2xl cursor-pointer">
+                            <h3 class="text-2xl font-semibold text-fuchsia-brand transition-colors duration-300">Karunagappally</h3>
+                        </div>
+                        <!-- Kottarakkara Selector -->
+                        <div data-branch="kottarakkara" class="branch-selector-box flex-1 text-center glass-bg p-6 rounded-2xl cursor-pointer">
+                            <h3 class="text-2xl font-semibold text-fuchsia-brand transition-colors duration-300">Kottarakkara</h3>
+                        </div>
+                    </div>
+            
+                    <!-- Branch Details Container -->
+                    <div id="branch-details-container" class="mt-8">
+                        <!-- Karunagappally Details -->
+                        <div id="karunagappally-details" class="branch-details" data-aos="fade-up" data-aos-delay="100">
+                            <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                                <!-- Left: Details -->
+                                <div class="text-left">
+                                    <div class="glass-bg p-6 rounded-2xl space-y-4">
+                                        <!-- Address -->
+                                        <div>
+                                            <h4 class="text-xl font-semibold mb-2 text-on-glass">Address</h4>
+                                            <p class="text-on-glass">Near Engineering College, Veluthamanal <br> Karunagappally, Kollam, Kerala, 690523</p>
+                                        </div>
+                                        <hr class="border-t border-white/10">
+                                        <!-- Contact Info -->
+                                         <div class="space-y-3 pt-2">
+                                            <a href="tel:8089076077" class="flex items-center space-x-4 text-on-glass hover:text-fuchsia-brand transition-colors group">
+                                                <div class="bg-fuchsia-brand/10 p-2 rounded-full"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-fuchsia-brand" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg></div>
+                                                <span class="group-hover:underline">8089076077</span>
+                                            </a>
+                                            <a href="https://wa.me/918089076077" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-4 text-on-glass hover:text-fuchsia-brand transition-colors group">
+                                                <div class="bg-fuchsia-brand/10 p-2 rounded-full flex items-center justify-center h-9 w-9">
+                                                    <img 
+                                                        src="wp_icon.png" 
+                                                        alt="WhatsApp Icon" 
+                                                        class="h-5 w-5 object-contain"
+                                                        onerror="this.onerror=null; this.src='https://placehold.co/20x20/25D366/ffffff?text=WA';"
+                                                    >
+                                                </div>
+                                                <span class="group-hover:underline">8089076077</span>
+                                            </a>
+                                            <a href="mailto:connectyuga@gmail.com" class="flex items-center space-x-4 text-on-glass hover:text-fuchsia-brand transition-colors group">
+                                                <div class="bg-fuchsia-brand/10 p-2 rounded-full"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-fuchsia-brand" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg></div>
+                                                <span class="group-hover:underline">connectyuga@gmail.com</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Right: Map -->
+                                <div class="w-full h-80 lg:h-96 rounded-2xl shadow-xl overflow-hidden">
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!m12!1m3!1d3939.9893544330853!2d76.54955764381693!3d9.06473346785799!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b060503e6725aed%3A0xce4145fb2efeda91!2sYUGA%20Music%20Academy%2C%20Karunagappally!5e0!3m2!1sen!2sin!4v1759252978973!5m2!1sen!2sin" class="w-full h-full border-0" allowfullscreen="" loading="lazy"></iframe>
+                                </div>
                             </div>
                         </div>
-                        <!-- Kottarakkara Branch -->
-                        <div data-aos="fade-left">
-                             <div class="text-left glass-bg p-8 rounded-lg mb-1">
-                                <h3 class="text-2xl md:text-3xl font-semibold mb-4 text-fuchsia-brand">Kottarakkara</h3>
-                                <p class="text-on-glass mb-4">Factory Jn., Neduvathoor, <br> Kottarakkara, Kollam <br> Kerala, 673582</p>
-                            </div>
-                            <div class="w-full h-80 rounded-lg shadow-xl overflow-hidden">
-                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.771893328251!2d76.74776901059708!3d8.993125591029484!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b060b81fed1c5e1%3A0x87b2fc9179812bf0!2sYUGA%20Music%20Academy%2C%20Neduvathoor%2C%20Kottarakkara!5e0!3m2!1sen!2sin!4v1759252696610!5m2!1sen!2sin" class="w-full h-full border-0" allowfullscreen="" loading="lazy"></iframe>
+            
+                        <!-- Kottarakkara Details (hidden by default) -->
+                        <div id="kottarakkara-details" class="branch-details hidden" data-aos="fade-up" data-aos-delay="100">
+                            <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                                 <!-- Left: Details -->
+                                <div class="text-left">
+                                    <div class="glass-bg p-6 rounded-2xl space-y-4">
+                                        <!-- Address -->
+                                        <div>
+                                            <h4 class="text-xl font-semibold mb-2 text-on-glass">Address</h4>
+                                            <p class="text-on-glass">Factory Jn., Neduvathoor, <br> Kottarakkara, Kollam, Kerala, 673582</p>
+                                        </div>
+                                        <hr class="border-t border-white/10">
+                                        <!-- Contact Info -->
+                                        <div class="space-y-3 pt-2">
+                                            <a href="tel:9037175586" class="flex items-center space-x-4 text-on-glass hover:text-fuchsia-brand transition-colors group">
+                                                <div class="bg-fuchsia-brand/10 p-2 rounded-full"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-fuchsia-brand" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg></div>
+                                                <span class="group-hover:underline">9037175586</span>
+                                            </a>
+                                            <a href="https://wa.me/919037175586" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-4 text-on-glass hover:text-fuchsia-brand transition-colors group">
+                                                <div class="bg-fuchsia-brand/10 p-2 rounded-full flex items-center justify-center h-9 w-9">
+                                                    <img 
+                                                        src="wp_icon.png" 
+                                                        alt="WhatsApp Icon" 
+                                                        class="h-5 w-5 object-contain"
+                                                        onerror="this.onerror=null; this.src='https://placehold.co/20x20/25D366/ffffff?text=WA';"
+                                                    >
+                                                </div>
+                                                <span class="group-hover:underline">9037175586</span>
+                                            </a>
+                                            <a href="mailto:connectyuga@gmail.com" class="flex items-center space-x-4 text-on-glass hover:text-fuchsia-brand transition-colors group">
+                                                <div class="bg-fuchsia-brand/10 p-2 rounded-full"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-fuchsia-brand" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg></div>
+                                                <span class="group-hover:underline">connectyuga@gmail.com</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Right: Map -->
+                                <div class="w-full h-80 lg:h-96 rounded-2xl shadow-xl overflow-hidden">
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!m12!1m3!1d3940.771893328251!2d76.74776901059708!3d8.993125591029484!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b060b81fed1c5e1%3A0x87b2fc9179812bf0!2sYUGA%20Music%20Academy%2C%20Neduvathoor%2C%20Kottarakkara!5e0!3m2!1sen!2sin!4v1759252696610!5m2!1sen!2sin" class="w-full h-full border-0" allowfullscreen="" loading="lazy"></iframe>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -803,6 +832,76 @@
             <p class="text-sm">&copy; 2024 Yuga Music Academy. All Rights Reserved.</p>
         </div>
     </footer>
+
+    <!-- Join Now Floating Button -->
+    <button id="join-now-btn" class="fixed bottom-6 right-4 sm:bottom-8 sm:right-8 bg-fuchsia-brand text-white font-bold px-4 py-2 sm:px-6 sm:py-3 rounded-full shadow-lg flex items-center justify-center space-x-2 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-fuchsia-brand/50 z-50 text-base sm:text-lg">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M18 5v8a2 2 0 01-2 2h-5l-5 4v-4H4a2 2 0 01-2-2V5a2 2 0 012-2h12a2 2 0 012 2zM7 8H5v2h2V8zm2 0h2v2H9V8zm6 0h-2v2h2V8z" clip-rule="evenodd" />
+        </svg>
+        <span>Join Now</span>
+    </button>
+    
+    <!-- Admission Side Panel -->
+    <div id="admission-overlay" class="fixed inset-0 bg-black/60 z-[60] hidden opacity-0 transition-opacity duration-300 ease-in-out"></div>
+    <aside id="admission-panel" class="fixed top-0 right-0 h-full w-full max-w-lg bg-gray-100 shadow-2xl z-[70] transform translate-x-full transition-transform duration-300 ease-in-out overflow-y-auto">
+        <div class="relative p-6 sm:p-8">
+            <button id="close-panel-btn" class="absolute top-4 right-6 text-4xl font-light text-gray-500 hover:text-gray-800 transition-colors z-10" aria-label="Close admission form">&times;</button>
+            
+            <div id="admission" class="mt-8">
+                <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center text-fuchsia-brand">Join Now!</h2>
+                <div class="glass-bg p-6 sm:p-8 rounded-xl">
+                    <form id="admission-form" novalidate>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label for="branch" class="form-label">Branch</label>
+                                <select id="branch" name="branch" class="form-select" required>
+                                    <option value="" disabled selected>Select a branch</option>
+                                    <option value="karnagappally">Karnagappally</option>
+                                    <option value="kottarakkara">Kottarakkara</option>
+                                </select>
+                                <span id="branch-error" class="form-error"></span>
+                            </div>
+                            <div>
+                                <label for="name" class="form-label">Full Name</label>
+                                <input type="text" id="name" name="name" class="form-input" placeholder="e.g., Vinod P. B." required pattern="[A-Za-z\s]+">
+                                <span id="name-error" class="form-error"></span>
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <label for="phone" class="form-label">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" class="form-input" placeholder="10-digit number" required pattern="\d{10}" maxlength="10">
+                            <span id="phone-error" class="form-error"></span>
+                        </div>
+                         <div class="mb-6">
+                            <label class="form-label">Interested Courses</label>
+                            <div class="multiselect-container" id="courses-multiselect">
+                                <div class="multiselect-box" id="courses-select-box" tabindex="0">
+                                    <span class="text-on-glass/60">Select Courses...</span>
+                                    <svg class="w-5 h-5 text-on-glass/80" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                </div>
+                                <div class="multiselect-checkboxes" id="courses-checkboxes">
+                                    <label><input type="checkbox" value="Carnatic Music"> Carnatic Music</label>
+                                    <label><input type="checkbox" value="Violin"> Violin</label>
+                                    <label><input type="checkbox" value="Tabla"> Tabla</label>
+                                    <label><input type="checkbox" value="Keyboard"> Keyboard</label>
+                                    <label><input type="checkbox" value="Guitar"> Guitar</label>
+                                    <label><input type="checkbox" value="Drums"> Drums</label>
+                                </div>
+                            </div>
+                             <span id="courses-error" class="form-error"></span>
+                        </div>
+                        <div class="mb-8">
+                             <label for="questions" class="form-label">Questions / Message (Optional)</label>
+                             <textarea id="questions" name="questions" rows="4" class="form-textarea" placeholder="Any questions you have..."></textarea>
+                        </div>
+                        <button type="submit" class="w-full px-8 py-4 bg-fuchsia-brand text-white font-bold rounded-full shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-fuchsia-brand/50">
+                            Send Enquiry via WhatsApp
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </aside>
     
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
@@ -885,7 +984,35 @@
                 aboutSectionObserver.observe(aboutSection);
             }
 
-            // --- BRANCH DATA & LOGIC ---
+            // --- NEW: Branches Section Logic ---
+            const branchSelectorsContainer = document.getElementById('branch-selectors');
+            const branchDetailsContainers = document.querySelectorAll('.branch-details');
+
+            if (branchSelectorsContainer && branchDetailsContainers.length > 0) {
+                branchSelectorsContainer.addEventListener('click', (e) => {
+                    const selectedBox = e.target.closest('.branch-selector-box');
+                    if (!selectedBox) return;
+
+                    const selectedBranch = selectedBox.dataset.branch;
+
+                    // Update selector boxes UI
+                    branchSelectorsContainer.querySelectorAll('.branch-selector-box').forEach(box => {
+                        box.classList.remove('active');
+                    });
+                    selectedBox.classList.add('active');
+
+                    // Update details visibility
+                    branchDetailsContainers.forEach(container => {
+                        if (container.id === `${selectedBranch}-details`) {
+                            container.classList.remove('hidden');
+                        } else {
+                            container.classList.add('hidden');
+                        }
+                    });
+                });
+            }
+
+            // --- TIMINGS DATA & LOGIC ---
             const branchData = {
                 karnagappally: {
                     timings: {
@@ -947,7 +1074,7 @@
                 menuCloseIcon.classList.toggle('hidden');
             });
             
-            // --- REBUILT: Universal and Reliable Smooth Scroll ---
+            // --- FIXED: Universal and Reliable Smooth Scroll ---
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
@@ -962,9 +1089,18 @@
                             menuOpenIcon.classList.remove('hidden');
                             menuCloseIcon.classList.add('hidden');
                         }
+
+                        let scrollTarget = targetElement;
+                        const targetStyle = window.getComputedStyle(targetElement);
+
+                        // For sticky elements, the intended scroll position is the top of their containing parent,
+                        // which marks the start of the sticky behavior. This makes the calculation reliable.
+                        if (targetStyle.position === 'sticky') {
+                            scrollTarget = targetElement.parentElement;
+                        }
                         
                         const headerOffset = document.querySelector('.sticky-header').offsetHeight;
-                        const elementPosition = targetElement.offsetTop;
+                        const elementPosition = scrollTarget.getBoundingClientRect().top + window.scrollY;
                         const offsetPosition = elementPosition - headerOffset;
 
                         window.scrollTo({
@@ -1043,8 +1179,38 @@
                 collageObserver.observe(performanceSection);
                 autoScroll();
             }
+
+            // --- Admission Panel Logic ---
+            const joinNowBtn = document.getElementById('join-now-btn');
+            const admissionPanel = document.getElementById('admission-panel');
+            const admissionOverlay = document.getElementById('admission-overlay');
+            const closePanelBtn = document.getElementById('close-panel-btn');
+
+            const openPanel = () => {
+                admissionOverlay.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+                requestAnimationFrame(() => {
+                    admissionOverlay.classList.remove('opacity-0');
+                    admissionPanel.classList.remove('translate-x-full');
+                });
+            };
+
+            const closePanel = () => {
+                admissionPanel.classList.add('translate-x-full');
+                admissionOverlay.classList.add('opacity-0');
+                document.body.style.overflow = '';
+                setTimeout(() => {
+                    admissionOverlay.classList.add('hidden');
+                }, 300); // Must match transition duration
+            };
+
+            if (joinNowBtn && admissionPanel && admissionOverlay && closePanelBtn) {
+                joinNowBtn.addEventListener('click', openPanel);
+                admissionOverlay.addEventListener('click', closePanel);
+                closePanelBtn.addEventListener('click', closePanel);
+            }
             
-            // --- ADMISSION FORM LOGIC ---
+            // --- ADMISSION FORM LOGIC (within panel) ---
             const form = document.getElementById('admission-form');
             const multiSelectContainer = document.getElementById('courses-multiselect');
 
@@ -1077,7 +1243,7 @@
                 
                 // Close dropdown when clicking outside
                 document.addEventListener('click', (e) => {
-                    if (!multiSelectContainer.contains(e.target)) {
+                    if (!multiSelectContainer.contains(e.target) && !selectBox.contains(e.target)) {
                         multiSelectContainer.classList.remove('open');
                     }
                 });
@@ -1110,8 +1276,8 @@
                         showError('branch-error', 'Please select a branch.');
                         isValid = false;
                     }
-                    if (!/^[A-Za-z\s]+$/.test(name) || name === '') {
-                        showError('name-error', 'Please enter a valid name (alphabets only).');
+                    if (!/^[A-Za-z\s.]+$/.test(name) || name === '') {
+                        showError('name-error', 'Please enter a valid name.');
                         isValid = false;
                     }
                     if (!/^\d{10}$/.test(phone)) {
@@ -1142,6 +1308,16 @@
                     const whatsappUrl = `https://wa.me/${whatsAppNumber}?text=${encodedMessage}`;
 
                     window.open(whatsappUrl, '_blank');
+
+                    // Close panel and reset form after submission
+                    setTimeout(() => {
+                        closePanel();
+                        form.reset();
+                        // Also reset the multiselect text display
+                        selectBoxText.textContent = 'Select Courses...';
+                        selectBoxText.classList.add('text-on-glass/60');
+                        Array.from(checkboxes).forEach(cb => cb.checked = false);
+                    }, 1500);
                 });
             }
 
@@ -1217,75 +1393,5 @@
             });
         });
     </script>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "MusicGroup",
-      "name": "Yuga Music Academy",
-      "url": "https://www.yugamusic.in",
-      "logo": "https://raw.githubusercontent.com/Wizz04/yuga/refs/heads/main/yuga_colour_logo_with_white_circle.png",
-      "description": "Premier music academy in Kerala's Kollam district, offering expert instruction in guitar, piano, drums, and vocals at our Karnagappally and Kottarakkara branches.",
-      "contactPoint": [
-        {
-          "@type": "ContactPoint",
-          "telephone": "+91-6282800074",
-          "contactType": "customer service"
-        },
-        {
-          "@type": "ContactPoint",
-          "telephone": "+91-8606421364",
-          "contactType": "customer service"
-        },
-        {
-          "@type": "ContactPoint",
-          "telephone": "+91-8089076077",
-          "contactType": "WhatsApp"
-        }
-      ],
-      "subOrganization": [
-        {
-          "@type": "MusicSchool",
-          "name": "Yuga Music Academy - Karnagappally",
-          "url": "https://www.yugamusic.in",
-          "telephone": "+91-6282800074",
-          "priceRange": "₹₹",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "REPLACE WITH YOUR KARNAGAPPALLY STREET ADDRESS",
-            "addressLocality": "Karnagappally",
-            "addressRegion": "Kerala",
-            "postalCode": "REPLACE WITH PINCODE",
-            "addressCountry": "IN"
-          },
-          "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": "9.0520",
-            "longitude": "76.5165"
-          }
-        },
-        {
-          "@type": "MusicSchool",
-          "name": "Yuga Music Academy - Kottarakkara",
-          "url": "https://www.yugamusic.in",
-          "telephone": "+91-8606421364",
-          "priceRange": "₹₹",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "REPLACE WITH YOUR KOTTARAKKARA STREET ADDRESS",
-            "addressLocality": "Kottarakkara",
-            "addressRegion": "Kerala",
-            "postalCode": "REPLACE WITH PINCODE",
-            "addressCountry": "IN"
-          },
-          "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": "8.9959",
-            "longitude": "76.7725"
-          }
-        }
-      ]
-    }
-</script>
 </body>
 </html>
-
