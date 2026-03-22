@@ -474,9 +474,85 @@
             display: block;
             opacity: 1;
         }
+
+        /*---Temporary changes---*/
+
+        /* Hanging Ribbon / Bookmark */
+        .hanging-ribbon {
+            position: fixed;
+            top: 0;
+            z-index: 55;
+            background-color: var(--primary-color-light);
+            color: white;
+            padding: 5rem 5rem 10rem 5rem;
+            font-weight: 800;
+            text-align: center;
+            clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 50% 70%, 0% 100%);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: background-color 0.4s ease, padding-bottom 0.4s ease;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: sans-serif;
+            letter-spacing: 2px;
+            font-size: 0.85rem;
+            text-decoration: none;
+            background: linear-gradient(135deg, #520552, #b51698, #1478ba, #96d138);
+            will-change: transform, opacity;
+        }
+
+        .hanging-ribbon::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -150%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                100deg,
+                transparent,
+                rgba(255, 255, 255, 0.267),
+                transparent
+            );
+            filter: blur(15px);
+            animation: glance 3s infinite;
+        }
+
+        @keyframes glance {
+            0% { left: -110%; }
+            20% { left: 90%; }
+            100% { left: 110%; }
+        }
+
+        .hanging-ribbon:hover {
+            background-color: var(--secondary-color-light);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 640px) {
+            .hanging-ribbon {
+                right: 1rem;
+                font-size: 0.7rem;
+                padding: 1rem 0.6rem 1.8rem 0.6rem;
+            }
+        }
     </style>
 </head>
 <body class="antialiased">
+
+    <!-- Hanging Ribbon Link -->
+    <a href="https://forms.gle/sxsVV6KSRv8VHjBb6" target="_blank" class="hanging-ribbon flex flex-col right-14 sm:right-10 lg:right-36 px-2 lg:px-5 pb-[80px] lg:pb-40 hover:pb-50 sm:hover:pb-50 lg:hover:pb-80" id="scroll-ribbon">
+        <span class="text-[13px] sm:text-[15px] font-black tracking-widest 
+                     bg-white/80 text-fuchsia-brand px-3 py-1 rounded 
+                     mt-2 z-10 shadow-sm transition-transform flex flex-col">
+            <span>FREE</span>
+            <span>WORKSHOP</span>
+        </span>
+        <span class="text-[15px] sm:text-2xl font-black">REGISTER</span><br>
+        <span class="text-[14px] sm:text-xl font-black tracking-widest opacity-90">NOW</span>
+        <span class="text-[12px] sm:text-sm italic tracking-widest opacity-90 rounded">Open to all</span>
+    </a>
 
     <!-- Page Loader -->
     <div id="loader" class="fixed inset-0 flex items-center justify-center z-[1000] bg-white">
@@ -518,6 +594,7 @@
                 <a href="#branches" class="nav-link">Branches</a>
                 <a href="#timings" class="nav-link">Timings</a>
                 <a href="#contact" class="nav-link">Contact</a>
+                <a href="https://forms.gle/sxsVV6KSRv8VHjBb6" class="nav-link bg-gradient-to-r from-pink-700 via-violet-800 to-green-700 bg-clip-text text-transparent text-md font-bold">Free Workshop</a>
             </div>
         </div>
     </header>
@@ -932,6 +1009,8 @@
                 document.body.style.overflow = '';
             }, 2000); 
 
+            
+
             const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
             const mobileMenu = document.getElementById('mobile-menu');
             const menuOpenIcon = document.getElementById('menu-open-icon');
@@ -953,6 +1032,41 @@
                 const transitionEnd = 400; 
                 const transitionZone = transitionEnd - transitionStart;
 
+                const updateScrollEffects = () => {
+                    const scrollY = window.scrollY;
+                    
+                    // Hero Content Opacity
+                    if (scrollY > transitionEnd) {
+                        heroContent.style.opacity = 0;
+                    } else {
+                        let progress = 0;
+                        if (scrollY >= transitionStart) {
+                            progress = (scrollY - transitionStart) / transitionZone;
+                        }
+                        progress = Math.max(0, Math.min(1, progress));
+                        heroContent.style.opacity = 1 - progress;
+                    }
+
+                    // Ribbon Movement
+                    if (ribbon) {
+                        const exitMultiplier = window.innerWidth < 640 ? 160 : 300; 
+                        const rEnd = aboutSection.offsetTop / 1.5;
+                        const rProgress = Math.max(0, Math.min(1, scrollY / rEnd));
+
+                        ribbon.style.transform = `translateY(-${rProgress * exitMultiplier}%)`;
+                        ribbon.style.opacity = 1 - rProgress;
+                        
+                        if (rProgress >= .95) {
+                            ribbon.style.pointerEvents = 'none';
+                        } else {
+                            ribbon.style.pointerEvents = 'auto';
+                        }
+                    }
+                };
+
+                // Listen for scroll events
+                window.addEventListener('scroll', updateScrollEffects, { passive: true });
+
                 window.addEventListener('scroll', () => {
                     const scrollY = window.scrollY;
                     if (scrollY > transitionEnd) {
@@ -966,6 +1080,26 @@
                     }
                     progress = Math.max(0, Math.min(1, progress));
                     heroContent.style.opacity = 1 - progress;
+
+                    //TemporaryRibbon
+                    const ribbon = document.getElementById('scroll-ribbon');
+                    if (ribbon) {
+                        // We link the movement to the About section's position
+                        // The ribbon starts moving immediately and is fully gone by the time it reaches About
+                        const rEnd = aboutSection.offsetTop/1.85;
+                        const rProgress = Math.max(0, Math.min(1, scrollY / rEnd));
+
+                        // 150% ensures it's fully off-screen. We use a high multiplier for the transform
+                        ribbon.style.transform = `translateY(-${rProgress * 150}%)`;
+                        ribbon.style.opacity = 1 - rProgress;
+                        
+                        // Prevent clicking if it's hidden
+                        if (rProgress >= .95) {
+                            ribbon.style.pointerEvents = 'none';
+                        } else {
+                            ribbon.style.pointerEvents = 'auto';
+                        }
+                    }
                 }, { passive: true });
 
                 const observerOptions = {
@@ -1076,12 +1210,20 @@
                 updateTimingContent('karnagappally');
             }
 
+            const ribbon = document.getElementById('scroll-ribbon');
+
 
             // Mobile menu toggle
             mobileMenuToggle.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
+                const isOpen = mobileMenu.classList.toggle('hidden');
                 menuOpenIcon.classList.toggle('hidden');
                 menuCloseIcon.classList.toggle('hidden');
+                
+                if (!isOpen) {
+                    ribbon.style.zIndex = '50'; // Push ribbon behind navigation
+                } else {
+                    ribbon.style.zIndex = '55'; // Return ribbon to front
+                }
             });
             
             // --- FIXED: Universal and Reliable Smooth Scroll ---
