@@ -55,26 +55,58 @@
         /* Left side: Steady Content */
         .info-section {
             flex: 0 0 40%;
-            padding: 3rem;
+            padding: 1.5rem 3rem 3rem 3rem; /* Reduced top padding to move items higher */
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start; /* Aligns content to the top */
             background: linear-gradient(135deg, rgba(69, 0, 80, 0.759) 0%, rgba(42, 0, 49, 0.693) 100%);
             backdrop-filter: blur(8px);
             border-right: 1px solid rgba(255, 255, 255, 0.1);
         }
 
+        /* Header for Logo and Back Button */
+        .info-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            margin-bottom: 2rem;
+            flex-shrink: 0;
+        }
+
+        .logo {
+            height: 110px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        /* Container to center the text content */
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 100%;
+        }
+
         @media (max-width: 1023px) {
             .info-section {
                 flex: 0 0 auto;
-                padding: 20px;
+                padding: 1px 15px 10px 15px; /* Reduced top padding for mobile */
                 text-align: center;
                 align-items: center;
                 border-right: none;
                 border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             }
-            .back-btn {
-                margin-bottom: 2px;
+            .info-header {
+                margin-bottom: 0.1px;
+            }
+            .logo {
+                height: 70px;
+            }
+            .main-content {
+                justify-content: flex-start;
+                align-items: center;
             }
         }
 
@@ -87,7 +119,6 @@
             font-weight: 800;
             letter-spacing: -1px;
             text-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-            margin-top: 1rem;
         }
 
         .info-section p {
@@ -96,7 +127,7 @@
             color: #e5e7eb;
             max-width: 500px;
             margin-top: 1rem;
-            margin-bottom: 4rem;
+            margin-bottom: 3rem; /* Adjusted spacing */
         }
 
         /* Sound Wave Animation */
@@ -141,12 +172,12 @@
             width: 90%;
             max-width: 640px;
             height: 600px; /* Steady height */
-            background: rgba(255, 255, 255, 0.016);
+            background: rgba(255, 255, 255, 0.008);
             border-radius: 16px;
             overflow: hidden; /* Clips the iframe's scrollbar */
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(3px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.366);
+            border: 2px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(1px);
             position: relative;
             display: flex;
             flex-shrink: 0;
@@ -166,15 +197,14 @@
         .back-btn {
             display: inline-flex;
             align-items: center;
-            gap: 2px;
-            margin-bottom: 20px;
-            padding: 0.5rem 0.9rem;
+            gap: 4px;
+            padding: 0.6rem 1.1rem;
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
+            border-radius: 25px;
             color: #fff;
             text-decoration: none;
-            font-size: 0.2;
+            font-size: 0.95rem;
             font-weight: 700;
             transition: all 0.3s ease;
             width: fit-content;
@@ -191,12 +221,12 @@
         @media (max-width: 1023px) {
             .page-wrapper { height: 100vh; overflow: hidden; }
             .interactive-zone { flex: 1; padding: 1rem 0; }
-            .form-card { width: 95%; height: min(600px, 70vh); border-radius: 16px; box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.352); margin-bottom: 1.8rem; margin-right: 0.5rem; margin-left: 0.5rem;}
-            .info-section h1 { font-size: 1.7rem; margin-top: 0.30rem; margin-bottom: 0.3rem;} /* Matched snippet mobile size */
-            .info-section p { font-size: 0.80rem; margin-top: 0.30rem; margin-bottom: 0.8rem;}
+            .form-card { width: 91%; height: min(600px, 70vh); border-radius: 16px; box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.352); margin-bottom: 1.3rem; margin-right: 1rem; margin-left: 1rem;}
+            .info-section h1 { font-size: 1.6rem; margin-top: 1px; margin-bottom: 0.3rem;} /* Matched snippet mobile size */
+            .info-section p { font-size: 0.75rem; margin-top: 0.30rem; margin-bottom: 0.8rem;}
             .sound-wave { margin-top: 0.2rem; height: 20px; }
             .bar { width: 3px; }
-            .back-btn { align-self: flex-start; margin-bottom: 0.5rem; padding: 0.2rem 0.8rem; font-size: 0.7rem; }
+            .back-btn { margin-bottom: 0; padding: 0.4rem 0.8rem; font-size: 0.75rem; }
         }
     </style>
 </head>
@@ -205,27 +235,40 @@
 
     <div class="page-wrapper">
         <section class="info-section">
-            <a href="index.html" class="back-btn">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-                Back
-            </a>
-            <h1>Begin Your Journey</h1>
-            <p>Complete the form to begin your admission process.</p>
+            <div class="info-header">
+                <!-- Logo on the left -->
+                <img src="yuga_logo_with_title_white.png" alt="Yuga Music Academy" class="logo">
+                
+                <!-- Back button on the right -->
+                <a href="index.html" class="back-btn">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" 
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 10.5L12 3l9 7.5"/>
+                        <path d="M5 10v10h14V10"/>
+                    </svg>
+                    Home
+                </a>
+            </div>
             
-            <div class="sound-wave">
-                <div class="bar" style="animation-delay: 0.1s"></div>
-                <div class="bar" style="animation-delay: 0.3s"></div>
-                <div class="bar" style="animation-delay: 0.2s"></div>
-                <div class="bar" style="animation-delay: 0.5s"></div>
-                <div class="bar" style="animation-delay: 0.4s"></div>
-                <div class="bar" style="animation-delay: 0.7s"></div>
-                <div class="bar" style="animation-delay: 0.2s"></div>
-                <div class="bar" style="animation-delay: 0.4s"></div>
-                <div class="bar" style="animation-delay: 0.5s"></div>
-                <div class="bar" style="animation-delay: 0.1s"></div>
-                <div class="bar" style="animation-delay: 0.2s"></div>
-                <div class="bar" style="animation-delay: 0.6s"></div>
-                <div class="bar" style="animation-delay: 0.4s"></div>
+            <div class="main-content">
+                <h1>Begin Your Journey</h1>
+                <p>Complete the form to begin your admission process.</p>
+                
+                <div class="sound-wave">
+                    <div class="bar" style="animation-delay: 0.1s"></div>
+                    <div class="bar" style="animation-delay: 0.3s"></div>
+                    <div class="bar" style="animation-delay: 0.2s"></div>
+                    <div class="bar" style="animation-delay: 0.5s"></div>
+                    <div class="bar" style="animation-delay: 0.4s"></div>
+                    <div class="bar" style="animation-delay: 0.7s"></div>
+                    <div class="bar" style="animation-delay: 0.2s"></div>
+                    <div class="bar" style="animation-delay: 0.4s"></div>
+                    <div class="bar" style="animation-delay: 0.5s"></div>
+                    <div class="bar" style="animation-delay: 0.1s"></div>
+                    <div class="bar" style="animation-delay: 0.2s"></div>
+                    <div class="bar" style="animation-delay: 0.6s"></div>
+                    <div class="bar" style="animation-delay: 0.4s"></div>
+                </div>
             </div>
         </section>
 
@@ -290,7 +333,7 @@
         }
 
         function createRibbons() {
-            const ribbonCount = 5; // Increased for more depth
+            const ribbonCount = 5; 
             for (let r = 0; r < ribbonCount; r++) {
                 const geometry = new THREE.PlaneGeometry(40, 3, 128, 1);
                 const material = new THREE.MeshPhongMaterial({ 
@@ -305,7 +348,6 @@
                 
                 const ribbon = new THREE.Mesh(geometry, material);
                 
-                // Varied positioning for a more immersive soundscape
                 ribbon.rotation.set(Math.PI / 2.2, 0, (r - 2) * 0.15);
                 ribbon.position.set(0, (r - 2) * 1.5, -r);
                 
@@ -322,14 +364,11 @@
         }
 
         function createParticles() {
-            // Standard Spheres
             const sphereGeo = new THREE.SphereGeometry(0.05, 12, 12);
-            // Octahedrons representing "musical notes"
             const noteGeo = new THREE.OctahedronGeometry(0.12, 0);
-            // New: Icosahedrons for more geometric variety
             const icoGeo = new THREE.IcosahedronGeometry(0.1, 0);
             
-            for (let i = 0; i < 120; i++) { // Increased particle count
+            for (let i = 0; i < 120; i++) {
                 const type = i % 3;
                 const material = new THREE.MeshPhongMaterial({
                     color: i % 2 === 0 ? COLORS.magenta : COLORS.white,
@@ -363,9 +402,8 @@
                 notes.push(particle);
             }
 
-            // Floating Rings - Increased count and thickness
-            const torusGeo = new THREE.TorusGeometry(0.7, 0.35, 66, 104); // Increased tube radius from 0.05 to 0.15
-            for (let i = 0; i < 15; i++) { // Increased count from 6 to 15
+            const torusGeo = new THREE.TorusGeometry(0.7, 0.35, 66, 104);
+            for (let i = 0; i < 15; i++) {
                 const torus = new THREE.Mesh(torusGeo, new THREE.MeshPhongMaterial({ 
                     color: i % 2 === 0 ? COLORS.magenta : 0x7e22ce, 
                     transparent: true,
@@ -396,7 +434,6 @@
             requestAnimationFrame(animate);
             const time = Date.now() * 0.001;
 
-            // Smooth mouse tracking
             targetX += (mouseX - targetX) * 0.05;
             targetY += (mouseY - targetY) * 0.05;
 
@@ -405,36 +442,29 @@
                 note.rotation.x += note.userData.rotSpeed || 0.005;
                 note.rotation.y += note.userData.rotSpeed || 0.005;
                 
-                // Pulsing animation for elements
                 if (note.userData.pulseSpeed) {
                     const scale = 1 + Math.sin(time * note.userData.pulseSpeed + idx) * 0.1;
                     note.scale.set(scale, scale, scale);
                 }
 
-                // Wrap around logic
                 if (Math.abs(note.position.x) > 18) note.position.x *= -0.99;
                 if (Math.abs(note.position.y) > 14) note.position.y *= -0.99;
             });
 
-            // Animate Ribbons with complex wave interference
             ribbons.forEach((ribbon, idx) => {
                 const positions = ribbon.geometry.attributes.position.array;
                 const { speed, frequency, amplitude, phase } = ribbon.userData;
                 
                 for (let i = 0; i < positions.length; i += 3) {
                     const x = positions[i];
-                    // Multi-layered wave motion for organic feel
                     const wave1 = Math.sin(x * frequency + time * speed + phase);
                     const wave2 = Math.cos(x * frequency * 0.5 + time * speed * 0.8);
                     positions[i + 2] = (wave1 + wave2 * 0.3) * amplitude;
                 }
                 ribbon.geometry.attributes.position.needsUpdate = true;
-                
-                // Subtle ribbon drift
                 ribbon.position.y += Math.sin(time * 0.5 + idx) * 0.002;
             });
 
-            // Interactive camera movement
             camera.position.x += (targetX - camera.position.x) * 0.05;
             camera.position.y += (-targetY - camera.position.y) * 0.05;
             camera.lookAt(0, 0, 0);
